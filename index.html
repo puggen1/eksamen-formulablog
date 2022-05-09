@@ -4,20 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Home | formula blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="#">
+        <img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags">
+        <img id="tempNav" src="assets/tempnav.svg">
+        <div id="nav">
         <a href="index.php">Home </a>
         <a href="posts.php">Posts </a>
         <a href="about.php">About </a>
         <a href="contact.html">Contact</a>
+    </div>
     </header>
-    <h1> dette er en test </h1>
-
-    <div id="test"></div>
-
+    <h1> Formula one blog </h1>
+    <img id="hero"src="/assets/hero.jpg" alt="picture of an formual one car">
+    <section id="carousel">
+        <h2>Latest posts</h2>
+        <div class="carouselItems">
+            <div class="fillerPost post">
+                <img src="/assets/test.png" alt="placeholder image">
+                <h3>title</h3>
+                <p class="dateAndBy">date and by</p>
+                <p class="excerpt">oppsumering kommer her</p>
+                <a  class="blueA" href="#">Read more</a>
+                <a  class="tag" href="posts.html?tagId=">tagname</a> 
+            </div>
+        </div>
+    </section>
+    <section id="mainPageAbout">
+        <h2>About</h2>
+        <div id="aboutBox" class="blueBox">
+        <h3>Want to learn more about me or the page?</h3>
+        <p>There is not much to say right now,
+            im a huge Formula one fan
+        </p>
+        <p>
+            This page is somewhat of a School project,
+            where the theme is genius
+        </p>
+        <a class="green" href="about.html#thePerson">Me</a>
+        <a class="green" href="about.html#thePage">The page</a>
+    </div>
+    </section>
+    <section id="featured">
+        <h2>Featured Posts</h2>
+        <a id="top" class="green" href="posts.html">View All</a>
+        <div id="mainPagePosts">
+            <div class="fillerPost post">
+                <img src="/assets/test.png" alt="placeholder image">
+                <h3>title</h3>
+                <p class="dateAndBy">date and by</p>
+                <p class="excerpt">oppsumering kommer her</p>
+                <a class="blueA" href="#">Read more</a>
+                <a class="tag" href="posts.html?tagId=">tagname</a> 
+            </div>
+        </div>
+        <a id="bottom" class="green" href="posts.html">View All</a>
+    </section>
+    <section id="mainpageContact">
+        <div id="contactBox" class="blueBox" >
+            <h3>Have a question?</h3>
+            <a class="green" href="contact.html">Contact us</a>
+        </div>
+        
+    </section>
     <footer>
         <a href="#header">Back to top</a>
         <p id="createdBy">Created by Bendik Kvam 2022</p>
