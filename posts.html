@@ -5,21 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts | formula blog</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="#">
+        <img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags">
+        <img id="tempNav" src="assets/tempnav.svg">
+        <div id="nav">
         <a href="index.php">Home </a>
         <a href="posts.php">Posts </a>
         <a href="about.php">About </a>
         <a href="contact.html">Contact</a>
+    </div>
     </header>
-    <h1> dette er en test </h1>
-
-
-
-
-
-    <?php include "./php/footer.html" ?>
+    <h1> All posts </h1>
+    <p>filter coming soon</p>
+    <section id="allPosts">
+        <div class="fillerPost post">
+            <img src="/assets/test.png" alt="placeholder image">
+            <h3>title</h3>
+            <p class="dateAndBy">date and by</p>
+            <div class="excerpt"><p>oppsumering kommer her</p></div>
+            <a class="blueA" href="#">Read more</a>
+            <a class="tag" href="posts.html?tagId=">tagname</a> 
+        </div>
+        <div class="fillerPost post">
+            <img src="/assets/test.png" alt="placeholder image">
+            <h3>title</h3>
+            <p class="dateAndBy">date and by</p>
+            <div class="excerpt"><p>oppsumering kommer her</p></div>
+            <a class="blueA" href="#">Read more</a>
+            <a class="tag" href="posts.html?tagId=">tagname</a> 
+        </div>
+        <a class="green center">Show more</a>
+    </section>
+    <footer>
+        <a href="#header">Back to top</a>
+        <p id="createdBy">Created by Bendik Kvam 2022</p>
+        <p id="footerEmail">email: this.that@yeah.com</p>
+        <a id="contactFooter" href="contact.php">Contact us</a>
+        <p id="sources">source for pictures: pexels.com, unsplash.com</p>
+    </footer>
 </body>
 </html>

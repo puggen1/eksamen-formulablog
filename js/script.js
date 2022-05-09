@@ -1,5 +1,5 @@
 console.log("hello from script.js");
-let testDiv = document.querySelector("#test");
+let featuredPosts = document.querySelector("#mainPagePosts");
 
 let api = "https://www.bendik.one/www/eksamenfed/wp-json/wp/v2/posts";
 let featuredMediaLibrary = "https://www.bendik.one/www/eksamenfed/wp-json/wp/v2/media/";
@@ -29,12 +29,15 @@ async function showData(data){
             mediaResult = await getData(mediaLocation);
             featuredMedia = mediaResult.source_url;
         }
-        post = `<div><img src="${featuredMedia}">
-                <h2>${posts.title.rendered}</h2>
-                ${posts.excerpt.rendered} </div>`;
+        post = `<div class="post"><img src="${featuredMedia}" alt="${mediaResult.alt_text}">
+                <h3>${posts.title.rendered}</h3>
+                <p class="dateAndBy"> ${posts.date} by ${posts.author   } </p>
+                <div class="excerpt">${posts.excerpt.rendered}</div>
+                <a class="blueA" href="singlepost.html?id=${posts.id}">Read more</a>
+                <a class="tag" href="posts.html?tagId=${posts.tags[0]}">${posts.tags[0]}</a> </div>`;
                 html += post;
             }
-            testDiv.innerHTML = html;
+            featuredPosts.innerHTML = html;
 }
 
 //call the global show funciton
