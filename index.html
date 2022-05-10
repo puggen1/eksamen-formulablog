@@ -12,17 +12,21 @@
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags">
+        <a href="index.html"><img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags"></a>
         <img id="tempNav" src="assets/tempnav.svg">
         <div id="nav">
-        <a href="index.php">Home </a>
-        <a href="posts.php">Posts </a>
-        <a href="about.php">About </a>
+        <a href="index.html">Home </a>
+        <a href="posts.html">Posts </a>
+        <a href="about.html">About </a>
         <a href="contact.html">Contact</a>
     </div>
     </header>
     <h1> Formula one blog </h1>
-    <img id="hero"src="/assets/hero.jpg" alt="picture of an formual one car">
+    <picture id="hero">
+        <source srcset="./assets/heroPc.jpg" media="(min-width: 1024px)">
+        <source srcset="./assets/heroTablet.jpg" media="(min-width: 768px)">
+        <img src="./assets/heroPhone.jpg" alt="picture of an formual one car">
+        </picture>
     <section id="carousel">
         <h2>Latest posts</h2>
         <div class="carouselItems">
@@ -47,8 +51,8 @@
             This page is somewhat of a School project,
             where the theme is genius
         </p>
-        <a class="green" href="about.html#thePerson">Me</a>
-        <a class="green" href="about.html#thePage">The page</a>
+        <a id="personBtn" class="green" href="about.html#thePerson">Me</a>
+        <a id="pageBtn" class="green" href="about.html#thePage">The page</a>
     </div>
     </section>
     <section id="featured">
@@ -66,7 +70,9 @@
         </div>
         <a id="bottom" class="green" href="posts.html">View All</a>
     </section>
+    
     <section id="mainpageContact">
+        <h2>Contact</h2>
         <div id="contactBox" class="blueBox" >
             <h3>Have a question?</h3>
             <a class="green" href="contact.html">Contact us</a>
@@ -74,12 +80,12 @@
         
     </section>
     <footer>
-        <a href="#header">Back to top</a>
+        <a class="white" href="#header">Back to top</a>
         <p id="createdBy">Created by Bendik Kvam 2022</p>
         <p id="footerEmail">email: this.that@yeah.com</p>
         <a id="contactFooter" href="contact.php">Contact us</a>
         <p id="sources">source for pictures: pexels.com, unsplash.com</p>
     </footer>
 </body>
-<script src="./js/script.js"></script>
+<script src="./js/script.js"  type="module"></script>
 </html>

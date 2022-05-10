@@ -2,10 +2,18 @@ body{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+}
+main{
+    display: flex;
+    flex-direction: column;
 }
 section{
     padding-left: 25px;
     padding-right: 25px;
+}
+img{
+    max-width: 100%;
 }
 /*everything with red border bottom  and global things*/
 #hero, h2, h1, #carousel{
@@ -28,26 +36,45 @@ grid-template-columns: 1fr 1fr 1fr;
 justify-items: center;
 align-items: center ;
 }
-#header #logo{
+#header a{
     width: 85px;
     grid-column: 2/3;
 }
 #nav{
     display: none;
 }
+#header #logo{
+    width: 85px;
+}
+#hero{
+}
 /********************************************
                 footer
 ***********************************************/
 footer{
     background-color: #fe2200;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items:center;
 }
-#header #logo{
-    width: 85px;
+footer a{
+    grid-column: 1/3;
 }
-#hero{
-    max-width: 100%;
-    
+#createdBy{
+    grid-column: 1/3;
 }
+#footerEmail{
+    grid-column: 1/2;
+}
+#contactFooter{
+    grid-column: 2/3;
+    color: #000000; 
+}
+#sources{
+    grid-column: 1/3;
+}
+
 /********************************************
                 text
 ***********************************************/
@@ -62,7 +89,7 @@ h1{
 h2{
     margin-bottom: 10px;
 }
-p, a, h3{
+p, a, h3, label{
     font-family: 'Barlow', sans-serif;
 }
 /********************************************
@@ -81,6 +108,17 @@ p, a, h3{
     justify-content: center;
     align-items: center;
 }
+.white{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    height: 30px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+}
 .blueA{
     text-decoration: underline;
     color: #12A2B3;
@@ -92,6 +130,17 @@ p, a, h3{
     height: 30px;
     width: 80px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tagDiv{
+    grid-column: 3/5;
+    display: flex;
+    column-gap: 5%;
+    flex-direction: row-reverse;
+    margin: 4px;
+
 }
 .blueBox{
     border-radius: 13px;
@@ -135,7 +184,7 @@ p, a, h3{
     
 }
 .post .dateAndBy{
-    grid-column: 1/3;
+    grid-column: 1/5;
     padding: 5px;
     margin: 0px;
 }
@@ -152,8 +201,7 @@ p, a, h3{
     padding: 5px;
 }
 .post .tag{
-    grid-column: 4/5;
-    padding: 5px;
+    
 }
 /********************************************
                     about main page
@@ -284,8 +332,12 @@ form input{
     border: solid black 1px;
     margin-top: 4px;
 }
+
 form label{
     margin-top: 10px;
+}
+#message{
+    min-height: 110px;
 }
 .buttons{
     margin: 10px 0;
@@ -332,4 +384,263 @@ form label{
 .aboutInfo p{
     width: 80%;
     margin: 0 auto;
+}
+
+/*****************************************************
+                        tablet
+****************************************************/
+@media screen and (min-width:768px) {
+
+    /***************
+         navigation
+    ******************/
+    #header{
+        grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    }
+    #header a{
+        grid-column: 2/3;
+    }
+    #nav{
+        display: flex;
+        grid-column: 3/6;
+    }
+    #nav a{
+        text-decoration: none;
+        color: #000000;
+        font-family: 'Racing Sans One', cursive;
+        text-align: center;
+    }
+    #tempNav{
+        display: none;
+    }
+
+/********************************************
+dette er for karusel, gjøres senere
+*******************************
+    .post{
+        border-radius: 0px;
+        box-shadow: 0px 3.7px 3.7px rgba(0, 0, 0, 0.25);
+        border:  0.1px solid #000000;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
+        padding-bottom:10px;
+        margin-bottom: 10px;
+        justify-items: center;
+    
+    }
+    .post img{
+        grid-column: 3/5;
+        grid-row: 1/5;
+        width: 100%;
+    }
+    .post h3{
+        display: inline-block;
+        grid-column: 1/3;
+        grid-row: 1/2;
+        padding: 5px;
+        text-align: center;
+        text-decoration: underline #fe2200 2px;
+        
+    }
+    .post .dateAndBy{
+        grid-column: 1/2;
+        grid-row: 3/4;
+
+        padding: 5px;
+        margin: 0px;
+    }
+    .post .excerpt{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    .excerpt p{
+        margin: 0;
+    }
+    .post .blueA{
+        grid-column: 1/3;
+        grid-row: 4/5;
+        text-align: center;
+        padding: 5px;
+    }
+    .post .tag{
+        grid-column: 2/3;
+        grid-row: 3/4;
+    
+    }
+    */
+    /* featured tablet*/
+    #mainPagePosts{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 10px;
+        column-gap: 10px;
+        
+    }
+    /* contact main page tablet */
+    #contactBox{
+        height: 120px;
+    }
+    /* main page about */
+    #aboutBox{
+        align-items: center;
+    }
+    #personBtn, #pageBtn{
+        grid-column: 2/3;
+    }
+    #personBtn{
+        grid-row: 2/3;
+        
+    }
+    #aboutBox p{
+        grid-column: 1/2;
+    }
+
+    /***********************************************************
+                                all posts page tablet(this should be used on carousel tablet also)
+    *************************************************************/
+    #allPosts .post{
+        border-radius: 0px;
+        box-shadow: 0px 3.7px 3.7px rgba(0, 0, 0, 0.25);
+        border:  0.1px solid #000000;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
+        padding-bottom:10px;
+        margin-bottom: 10px;
+        justify-items: center;
+    }
+    #allPosts .post img{
+        grid-column: 3/5;
+        grid-row: 1/5;
+        width: 100%;
+    }
+    #allPosts .post h3{
+        display: inline-block;
+        grid-column: 1/3;
+        grid-row: 1/2;
+        padding: 5px;
+        text-align: center;
+        text-decoration: underline #fe2200 2px;
+        
+    }
+    #allPosts .post .dateAndBy{
+        grid-column: 1/2;
+        grid-row: 3/4;
+
+        padding: 5px;
+        margin: 0px;
+    }
+    #allPosts .post .excerpt{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    #allPosts.excerpt p{
+        margin: 0;
+    }
+    #allPosts .post .blueA{
+        grid-column: 1/3;
+        grid-row: 4/5;
+        text-align: center;
+        padding: 5px;
+    }
+    #allPosts .post .tagDiv{
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+    #allPosts .post .tag{
+        
+    
+    }
+ /***********************************************************
+                                single post page tablet
+*************************************************************/
+    #post{
+        width: 70%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: auto auto auto;
+    }
+    #featuredImage{
+        grid-column: 1/3;
+    }
+    #forord{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    #post img:last-of-type{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .content{
+        grid-column: 1/3;
+    }
+    .postInfo{
+        grid-column: 1/3;
+    }
+    .postInfo p{
+        grid-column: 1/2;
+    }
+    .backBtn{
+        grid-column: 1/3;
+    }
+    /****************************************
+    about page tablet
+    *****************************************/
+
+    .aboutBox{
+        width: 70%;
+    }
+    #personInfo{
+        border-top: solid 120px #222222;
+    }
+    .aboutInfo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center
+
+
+    }
+    .aboutInfo div{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .aboutInfo img{
+        grid-row: 2/3;
+    }
+ /****************************************
+    contact page tablet
+    *****************************************/
+    #contact{
+        width: 75%;
+        margin: 0 auto;
+    }
+    #contact img{
+        max-width: 100%;
+    }
+    #contact .info, form{
+        padding: 5px 7%;
+    }
+    .middle{
+        text-align: center;
+    }
+  
+    input{
+        width: 60%;
+    }
+    #message{
+        width: 70%;
+    }
+    form{
+        margin: 0 0;
+    }
+}
+
+/*******************************************
+               bigger screens 
+********************************************/
+@media screen and (min-width:1024px) {
+    #hero{
+    }
 }

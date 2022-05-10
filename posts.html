@@ -12,15 +12,16 @@
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags">
+        <a href="index.html"><img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags"></a>
         <img id="tempNav" src="assets/tempnav.svg">
         <div id="nav">
-        <a href="index.php">Home </a>
-        <a href="posts.php">Posts </a>
-        <a href="about.php">About </a>
+        <a href="index.html">Home </a>
+        <a href="posts.html">Posts </a>
+        <a href="about.html">About </a>
         <a href="contact.html">Contact</a>
     </div>
     </header>
+    <main>
     <h1> All posts </h1>
     <p>filter coming soon</p>
     <section id="allPosts">
@@ -40,14 +41,17 @@
             <a class="blueA" href="#">Read more</a>
             <a class="tag" href="posts.html?tagId=">tagname</a> 
         </div>
-        <a class="green center">Show more</a>
+        
     </section>
+    <a class="green center">Show more</a>
+</main>
     <footer>
-        <a href="#header">Back to top</a>
+        <a  class="white" href="#header">Back to top</a>
         <p id="createdBy">Created by Bendik Kvam 2022</p>
         <p id="footerEmail">email: this.that@yeah.com</p>
-        <a id="contactFooter" href="contact.php">Contact us</a>
+        <a id="contactFooter" href="contact.html">Contact us</a>
         <p id="sources">source for pictures: pexels.com, unsplash.com</p>
     </footer>
+    <script src="./js/posts.js" type="module"></script>
 </body>
 </html>

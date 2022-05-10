@@ -12,12 +12,12 @@
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags">
+        <a href="index.html"><img id="logo" src="/assets/logo.svg" alt="our logo of two raceflags"></a>
         <img id="tempNav" src="assets/tempnav.svg">
         <div id="nav">
-        <a href="index.php">Home </a>
-        <a href="posts.php">Posts </a>
-        <a href="about.php">About </a>
+        <a href="index.html">Home </a>
+        <a href="posts.html">Posts </a>
+        <a href="about.html">About </a>
         <a href="contact.html">Contact</a>
     </div>
     </header>
@@ -26,31 +26,35 @@
         <div class="aboutBox" id="person">
             <h2>The person</h2>
             <img src="/assets/test.png" alt="A picture of me, the creator">
-            <a class="green">Read more</a>
+            <a href="#personInfo" class="green">Read more</a>
         </div>
         <div class="aboutBox" id="page">
             <h2>The page</h2>
             <img src="/assets/logo.svg" alt="A picture of our logo, two raceflags">
-            <a class="green">Read more</a>
+            <a href="#pageInfo" class="green">Read more</a>
         </div>
         <section class="aboutInfo" id="personInfo">
             <h3>The person</h3>
-            <p>Im a 22 year old soon to be web developer, with a passion for Formula one. Im currently doing my first year on Noroff voccational school</p>
-            <p>in my free time i like to play videogames, watch series and train on coding</p>
+            <div>
+                <p>Im a 22 year old soon to be web developer, with a passion for Formula one. Im currently doing my first year on Noroff voccational school</p>
+                <p>in my free time i like to play videogames, watch series and train on coding</p>
+            </div>
             <img src="#second picture of me">
         </section>
         <section class="aboutInfo" id="pageInfo">
             <h3>The page</h3>
-            <p>This is a website built by me (Bendik) and shows my passion for the racing sport formula one. It is also a school project / task.</p>
-            <p>More text to come here...... </p>
+            <div>
+                <p>This is a website built by me (Bendik) and shows my passion for the racing sport formula one. It is also a school project / task.</p>
+                <p>More text to come here...... </p>
+            </div>
             <img src="assets/logo.svg" alt="A picture of our logo, two raceflags">
         </section>
     </main>
     <footer>
-        <a href="#header">Back to top</a>
+        <a class="white" href="#header">Back to top</a>
         <p id="createdBy">Created by Bendik Kvam 2022</p>
         <p id="footerEmail">email: this.that@yeah.com</p>
-        <a id="contactFooter" href="contact.php">Contact us</a>
+        <a id="contactFooter" href="contact.html">Contact us</a>
         <p id="sources">source for pictures: pexels.com, unsplash.com</p>
     </footer>
 </body>
