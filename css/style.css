@@ -641,6 +641,82 @@ dette er for karusel, gjøres senere
                bigger screens 
 ********************************************/
 @media screen and (min-width:1024px) {
+       /****************************************
+                   various global things pc/bigger screens
+    *****************************************/
+    body{
+        background-color: #F3F3F3;
+    }
+    main{
+        max-width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+    }
+    .green{
+        border-radius: 1px;
+    }
     #hero{
+
+    }
+    #carousel{
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    .carouselItems{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /****************************************
+                    main page about pc/bigger screens
+    *****************************************/
+    #mainPageAbout{
+        padding: 0px;
+        display: grid;
+        grid-template-columns:1fr  1fr 1fr 1fr;
+        justify-items: end;
+    }
+    #mainPageAbout h2{
+        grid-column: 1/2;
+    }
+    #aboutBox{
+        grid-column: 1/5;
+        border-radius: 0px;
+        height: 250px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #aboutBox h3{
+        grid-column: 2/4;
+    }
+    #aboutBox p{
+        grid-column: 2/3;
+    }
+    #aboutBox a{
+        grid-column: 3/4;
+    }
+    /****************************************
+            main page featured posts pc/bigger screens
+    *****************************************/
+    #featured{       
+         padding: 0px 5%;
+         grid-template-columns: 1fr 1fr 1fr;
+         grid-template-areas: "h2 . topbtn"
+         "postsection postsection postsection"
+         "botbtn botbtn botbtn";
+    }
+    #featured #mainPagePosts{
+        width: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15%;
+    } 
+     /****************************************
+            main page contact box pc/bigger screens
+    *****************************************/
+    #contactBox{
+        border-radius: 0px;
+        margin-bottom: 0px;
+        flex-direction: column;
+        padding: 10px;
+        
     }
 }
