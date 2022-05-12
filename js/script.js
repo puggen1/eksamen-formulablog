@@ -23,7 +23,7 @@ async function showData(data){
         let imageArray = await getImage(posts.featured_media);
         post = `<div class="post"><img src="${imageArray[0]}" alt="${imageArray[1]}">
                 <h3>${posts.title.rendered}</h3>
-                <p class="dateAndBy"> ${posts.date} by ${posts.author   } </p>
+                <p class="dateAndBy"> ${posts.date} by ${posts.author} </p>
                 <div class="excerpt">${posts.excerpt.rendered}</div>
                 <a class="blueA" href="singlepost.html?id=${posts.id}">Read more</a>
                 <div class="tagDiv">

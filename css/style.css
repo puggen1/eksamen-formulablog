@@ -85,6 +85,7 @@ h2, h1{
 h1{
     text-align: center;
     margin-top: 4px;
+    align-self: center;
 }
 h2{
     margin-bottom: 10px;
@@ -819,22 +820,31 @@ dette er for karusel, gjøres senere
         height: 70%;
         width: auto;
     }
-    #personInfo{
-        border-top: #12A2B3 solid 300px;
+    .fillerDiv{
+        height: 200px;
+        width: 100%;
+        background-color: #12A2B3;
+    }
+    #personInfo,#pageInfo{
+        border-top: none;
     }
     .aboutInfo{
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
         justify-items: center;
-        
+        padding: 100px 0px;
+        border-left: solid 150px #f3f3f3;
+        border-right: solid 150px #f3f3f3;
     }
-    .aboutInfo *{
-        grid-column: 1/2;
+    .aboutInfo > *{
+        max-width: 50%;
     }
     .aboutInfo img{
-        grid-row: auto;
+        grid-row: 2/3;
+        padding: 10px;
     }
     .aboutInfo div{
         grid-row: auto;
+        max-width: 60%;
     }
 
          /****************************************
