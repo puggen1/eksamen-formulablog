@@ -1,3 +1,4 @@
+
 body{
     margin: 0 auto;
     display: flex;
@@ -9,8 +10,7 @@ main{
     flex-direction: column;
 }
 section{
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0 25px 0 25px ;
 }
 img{
     max-width: 100%;
@@ -182,7 +182,7 @@ button{
     border:  0.1px solid #000000;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: 1fr auto auto auto auto;
     grid-template-areas: 
     "img img img img"
     "h3 h3 h3 h3"
@@ -196,11 +196,15 @@ button{
 .post img{
     grid-area: img;
     width: 100%;
+    height: 100%;
+    /*my soluton to make image fill everything when not same size as the other on that row.*/
+    object-fit: cover;
 }
 .post h3{
     display: inline-block;
     grid-area: h3;
     padding: 5px;
+    margin: 0;
     text-decoration: underline #fe2200 2px;
     
 }
@@ -420,7 +424,7 @@ form label{
                         tablet
 ****************************************************/
 @media screen and (min-width:768px) {
-
+    
     /***************
          navigation
     ******************/
@@ -444,61 +448,6 @@ form label{
         display: none;
     }
 
-/********************************************
-dette er for karusel, gjøres senere
-*******************************
-    .post{
-        border-radius: 0px;
-        box-shadow: 0px 3.7px 3.7px rgba(0, 0, 0, 0.25);
-        border:  0.1px solid #000000;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
-        padding-bottom:10px;
-        margin-bottom: 10px;
-        justify-items: center;
-    
-    }
-    .post img{
-        grid-column: 3/5;
-        grid-row: 1/5;
-        width: 100%;
-    }
-    .post h3{
-        display: inline-block;
-        grid-column: 1/3;
-        grid-row: 1/2;
-        padding: 5px;
-        text-align: center;
-        text-decoration: underline #fe2200 2px;
-        
-    }
-    .post .dateAndBy{
-        grid-column: 1/2;
-        grid-row: 3/4;
-
-        padding: 5px;
-        margin: 0px;
-    }
-    .post .excerpt{
-        grid-column: 1/3;
-        grid-row: 2/3;
-    }
-    .excerpt p{
-        margin: 0;
-    }
-    .post .blueA{
-        grid-column: 1/3;
-        grid-row: 4/5;
-        text-align: center;
-        padding: 5px;
-    }
-    .post .tag{
-        grid-column: 2/3;
-        grid-row: 3/4;
-    
-    }
-    */
     /* featured tablet*/
     #mainPagePosts{
         display: grid;
@@ -671,23 +620,28 @@ dette er for karusel, gjøres senere
        /****************************************
                    various global things pc/bigger screens
     *****************************************/
+    section{
+        padding: 0;
+    }
     body{
-        background-color: #F3F3F3;
+        
     }
     main{
         /*margin: 0 auto;*/
-        background-color: #fff;
-    }
-    main#greySide{
-        max-width: 80%;
-        margin: 0 auto;
+        
+        background-color: #f3f3f3;
         
     }
+    
+    /*.greyBorder{
+        border-left: solid 150px #f3f3f3;
+        border-right: solid 150px #f3f3f3;
+    }*/
     .green{
         border-radius: 1px;
     }
     #hero{
-
+        display: none;
     }
      /****************************************
                     main header pc/bigger screens
@@ -717,7 +671,6 @@ dette er for karusel, gjøres senere
                     main page carousel pc/bigger screens
     *****************************************/
     #carousel{
-        max-width: 85%;
         margin: 0 auto;
     }
     .carouselItems{
@@ -766,6 +719,7 @@ dette er for karusel, gjøres senere
     #featured #mainPagePosts{
         width: auto;
         grid-template-columns: 1fr 1fr;
+        column-gap: 5%;
         } 
      /****************************************
             main page contact box pc/bigger screens
@@ -832,8 +786,7 @@ dette er for karusel, gjøres senere
         grid-template-columns:1fr;
         justify-items: center;
         padding: 100px 0px;
-        border-left: solid 150px #f3f3f3;
-        border-right: solid 150px #f3f3f3;
+        
     }
     .aboutInfo > *{
         max-width: 50%;
@@ -885,10 +838,11 @@ dette er for karusel, gjøres senere
     form div{
         grid-column: 1/3;
     }
+}
 /*fixes too small cards at pc versions*/
-    @media screen and (min-width:1300px) {
-        #featured #mainPagePosts{
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+@media screen and (min-width:1300px) {
+    #featured #mainPagePosts{
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 80px;
     }
 }
