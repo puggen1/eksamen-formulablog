@@ -532,9 +532,7 @@ form label{
 *************************************************************/
     #post{
         width: 70%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
+       
     }
     #featuredImage{
         grid-column: 1/3;
