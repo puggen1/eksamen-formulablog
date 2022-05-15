@@ -125,7 +125,9 @@ button{
 }
 */
 .white{
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     background-color: white;
     height: 30px;
@@ -199,7 +201,7 @@ button{
 .post img{
     grid-area: img;
     width: 100%;
-    height: 100%;
+    height: 250px;
     /*my soluton to make image fill everything when not same size as the other on that row.*/
     object-fit: cover;
 }
@@ -290,7 +292,7 @@ grid-area: h2;
 }
 #bottom{
     grid-area: botbtn;
-    margin: 10px auto;
+    margin: 2m0px auto;
 }
 
 
@@ -532,7 +534,6 @@ form label{
 *************************************************************/
     #post{
         width: 70%;
-       
     }
     #featuredImage{
         grid-column: 1/3;
@@ -627,9 +628,9 @@ form label{
     section{
         padding: 0;
     }
-    body{
+   /* body{
         background-color: #f3f3f3;   
-    }
+    }*/
     main{
         background-color: white;
     }
@@ -718,11 +719,11 @@ form label{
             main page featured posts pc/bigger screens
     *****************************************/
     #featured{       
-         padding: 0px 5%;
-         grid-template-columns: 1fr 1fr 1fr;
-         grid-template-areas: "h2 . topbtn"
-         "postsection postsection postsection"
-         "botbtn botbtn botbtn";
+         
+         grid-template-columns:1fr 1fr 1fr 1fr;
+         grid-template-areas: "h2 . . topbtn"
+         "postsection postsection  postsection postsection"
+         "botbtn botbtn botbtn botbtn";
     }
     #featured #mainPagePosts{
         width: auto;
@@ -751,8 +752,7 @@ form label{
 #allPosts{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3% 10%;
-    margin-bottom: 30px;
+    gap: 10px 50px;
     width: 70%;
 }
     #allPosts .post{
@@ -823,6 +823,10 @@ form label{
 
         
     }
+
+    #contactMain{
+        margin: auto 0px;
+    }
     #contact > img{
         grid-column: 1/3;
         display: none;
@@ -846,10 +850,15 @@ form label{
     form div{
         grid-column: 1/3;
     }
+    #message{
+        width: 80%;
+        max-width: 80%;
+    }
 }
 /*fixes too small cards at pc versions*/
 @media screen and (min-width:1300px) {
     #featured #mainPagePosts{
+        padding: 0px 5%;
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 80px;
     }
