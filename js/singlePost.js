@@ -1,4 +1,5 @@
 import {createTag} from "./createTag.js";
+import {createDate} from "./createDate.js";
 let webUrl = window.location.search;
 let urlInfo = new URLSearchParams(webUrl);
 let postId = urlInfo.get("id");
@@ -19,17 +20,21 @@ fetch(api)
 async function showPost(apiPost){
     let tags = ""
     let singleTag = "";
-    for(let tag of apiPost._embedded['wp:term'][1]){
-        singleTag = await createTag(tag);
-        tags += singleTag;
+    if(!apiPost._embedded['wp:term'][1][0]){
+            console.log("no tags")
+        }
+    else{
+        for(let tag of apiPost._embedded['wp:term'][1]){
+            singleTag = await createTag(tag);
+            tags += singleTag;
+        }
     }
-    console.log(tags)
-    console.log(apiPost._embedded['wp:term'][1][1].slug)
-    console.log(apiPost.date)
+    let date = createDate(apiPost.date);
     title.innerHTML = apiPost.title.rendered;
     header.innerHTML = apiPost.title.rendered;
-    let posted = apiPost.date.toLocaleString()
-    console.log(new Date())
-    postLocation.innerHTML =`<picture>srcsets comes here</picture> ${apiPost.content.rendered} <div class="singlePostInfo"><div class="byDate"><p> written by: ${apiPost._embedded.author[0].name}</p><p>on the ${posted}</p></div><div class="tags">${tags}</div</div>`
+    
+
+
+    postLocation.innerHTML =`<picture>srcsets comes here</picture> ${apiPost.content.rendered} <div class="singlePostInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags">${tags}</div</div>`
     
 }

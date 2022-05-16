@@ -1,6 +1,7 @@
 import { getData } from "./getData.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
+import {getDate} from "./createDate.js";
 let api = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/posts?per_page=20&_embed";
 let postSection = document.querySelector("#allPosts");
 let html="";
@@ -17,7 +18,6 @@ async function showPosts(url){
                 let singleTag = await createTag(tag);
                 tags += singleTag;
             }
-            console.log(ImageArray[0], ImageArray[1]);
             singlePost = `<div class="post"><img src="${ImageArray[0]}" alt="${ImageArray[1]}">
             <h3>${posts[i].title.rendered}</h3>
             <p class="dateAndBy">by ${posts[i]._embedded.author[0].name}, on the ${posts[i].date}</p>
