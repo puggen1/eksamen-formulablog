@@ -159,7 +159,7 @@ button{
     display: flex;
     column-gap: 5%;
     flex-direction: row-reverse;
-    margin: 4px;
+    margin-right: 4px;
 
 }
 .blueBox{
@@ -195,9 +195,7 @@ button{
     width: 30px;
     cursor: pointer;
 }
-.navBtn:hover{
-    background-color: #0DE7FF;
-}
+
 .activeNav{
     background-color: #0DE7FF;
 }
@@ -262,6 +260,7 @@ i{
 }
 .post .tagDiv{
     grid-area: tags;
+    min-height: 40px;
 
     
 }
@@ -737,10 +736,11 @@ form label{
         margin: 0 auto;
     }
     .carouselItems{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+   min-width: 680px;
     }
-
+    .navBtn:hover{
+        background-color: #0DE7FF;
+    }
 
     /****************************************
                     main page about pc/bigger screens
@@ -764,8 +764,8 @@ form label{
     #aboutBox{
         border-radius: 0px;
         height: 250px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        
+        grid-template-columns: 1fr 1fr 0.5fr 1fr;
+        justify-items: normal;
     }
     #aboutBox h3{
         grid-column: 2/4;
@@ -775,6 +775,7 @@ form label{
     }
     #aboutBox a{
         grid-column: 3/4;
+        margin: 0 auto;
     }
     /****************************************
             main page featured posts pc/bigger screens

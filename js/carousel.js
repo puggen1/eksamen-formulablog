@@ -2,6 +2,7 @@ import {getData} from "./getData.js";
 import {api} from "./script.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
+import {createDate} from "./createDate.js";
 let CarouselpostPlacement = document.querySelector(".carouselItems");
 let currentSlideNumber = 0;
 let arrows = document.querySelectorAll(".carouselNavigation i");
@@ -20,6 +21,7 @@ export async function carousel(){
     let post = ""
     let numberOfSlides = 3;
     for(let i = 0; i < numberOfSlides; i++){
+        let FormatedDate = createDate(posts[i].date)
         let tags = ""
         for(let tag of posts[i]._embedded['wp:term'][1]){
             let singleTag = await createTag(tag);
@@ -28,8 +30,8 @@ export async function carousel(){
         let imageArray = await getImage(posts[i].featured_media);
         post = `<div class="post carouselItem${i}"><img src="${imageArray[0]}" alt="${imageArray[1]}">
                 <h3>${posts[i].title.rendered}</h3>
-                <p class="dateAndBy"> ${posts[i].date} by ${posts[i]._embedded.author[0].name} </p>
-                <div class="excerpt">${posts[i].excerpt.rendered}</div>
+                <p class="dateAndBy"> ${FormatedDate} by ${posts[i]._embedded.author[0].name} </p>
+                <div class="excerpt">${posts[i].excerpt.rendered.slice(0, 100)} <p> []</p></div>
                 <a class="blueA" href="singlepost.html?id=${posts[i].id}">Read more</a>
                 <div class="tagDiv">
            ${tags}
@@ -76,6 +78,6 @@ function showCurrentSlide(slideNumber){
     for(let slide of slides){
         slide.style.display = "none";
     }
-        currentSlide.style.display = "block";
+        currentSlide.style.display = "grid";
 
 }
