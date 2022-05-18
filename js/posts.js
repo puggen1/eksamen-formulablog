@@ -9,8 +9,7 @@ let singlePost = "";
 let x = 10;
 async function showPosts(url){
     let posts = await getData(url);
-    for (let i = 0; i < x; i++){
-
+    for (let i = 0; i < x; i++)
         if(i < posts.length){
             let ImageArray = await getImage(posts[i].featured_media);
             let tags = "";
