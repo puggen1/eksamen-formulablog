@@ -2,6 +2,7 @@ console.log("hello from script.js");
 import {getData} from "./getData.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
+import {carousel} from "./carousel.js";
 let featuredPosts = document.querySelector("#mainPagePosts");
 export let api = "https://www.bendik.one/www/eksamenfed/wp-json/wp/v2/posts?_embed";
 let featuredMediaLibrary = "https://www.bendik.one/www/eksamenfed/wp-json/wp/v2/media/";
@@ -37,3 +38,5 @@ async function showData(data){
 
 //call the global show funciton
 showData(api);
+carousel();
+

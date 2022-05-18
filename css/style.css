@@ -177,6 +177,36 @@ button{
 }
 .carouselItems{
     padding-top: 10px;
+    display: grid;
+    
+}
+.carouselItems .post{
+    display: none;
+}
+.carouselNavigation{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.navBtn{
+    border-radius: 50%;
+    background-color: #000000;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.navBtn:hover{
+    background-color: #0DE7FF;
+}
+.activeNav{
+    background-color: #0DE7FF;
+}
+i{
+    font-size: 30px;
+}
+.carouselNavigation i:hover{
+    background-color: #dcd9d9;
+    border-radius: 50%;
 }
 /********************************************
                 post cards
@@ -518,7 +548,6 @@ form label{
         "tags more img img";
         padding-bottom:10px;
         margin-bottom: 10px;
-        justify-items: center;
     }
     #allPosts .post img{
         width: 100%;
@@ -526,7 +555,6 @@ form label{
     #allPosts .post h3{
         display: inline-block;
         padding: 5px;
-        text-align: center;
         text-decoration: underline #fe2200 2px;
         
     }
