@@ -7,14 +7,14 @@ let CarouselpostPlacement = document.querySelector(".carouselItems");
 let currentSlideNumber = 0;
 let arrows = document.querySelectorAll(".carouselNavigation i");
 let slideButtons = document.querySelectorAll(`.navBtn`);
-for (let arrow of arrows){
-arrow.addEventListener("click", showSlideFinder);
-}
-for (let button of slideButtons){
-    button.addEventListener("click", showSlideFinder);
-}
-export async function carousel(){
-    let posts = await getData(api);
+
+export async function carousel(posts){
+    for (let arrow of arrows){
+        arrow.addEventListener("click", showSlideFinder);
+        }
+        for (let button of slideButtons){
+            button.addEventListener("click", showSlideFinder);
+        }
     let html = "";
     let post = ""
     let numberOfSlides = 3;

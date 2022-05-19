@@ -14,7 +14,10 @@ posts = await getData(api);
 let postSection = document.querySelector("#allPosts");
 let html="";
 let singlePost = "";
-let x = 10;
+let x = 7;
+let y = 0;
+let showMoreBtn = document.querySelector("#bottom");
+showMoreBtn.addEventListener("click", showMore)
 if(!tagId){
     console.log("no tags");
     showPosts(posts);
@@ -41,20 +44,19 @@ function filterPost(method, filterId){
 //diffrent filter functions
 
 function filterTag(event){
-        for(let tag of event.tags){
-            if(this == tag){
-                console.log(event.tags + "inneholder taggen")
-                return true
+    for(let tag of event.tags){
+        if(this == tag){
+            console.log(event.tags + "inneholder taggen")
+            return true
     
-            }
-            else{
-                return false
-            }
         }
     }
+}
+
+
 //show posts, no matter filter
     async function showPosts(postList){
-        for (let i = 0; i < x; i++){
+        for (let i = y; i < x; i++){
             if(i < postList.length){
                 let formatedDate = createDate(posts[i].date)
                 let ImageArray = await getImage(postList[i].featured_media);
@@ -79,6 +81,18 @@ function filterTag(event){
             html += singlePost;
         }
         postSection.innerHTML = html;
-        x += 10;
+        y = x;
+        x += 7;
        
     }
+function showMore(){
+    if(filterPost){
+        showPosts(filterPost)
+    }
+    else{
+        showPosts(posts);
+    }
+    if(x >= posts.length){
+        showMoreBtn.style.display ="none";
+    }
+}
