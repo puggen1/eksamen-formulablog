@@ -11,9 +11,7 @@ for (let arrow of arrows){
 arrow.addEventListener("click", showSlideFinder);
 }
 for (let button of slideButtons){
-    button.addEventListener("click", function() {
-        showCurrentSlide(button.id);
-    })
+    button.addEventListener("click", showSlideFinder);
 }
 export async function carousel(){
     let posts = await getData(api);
@@ -52,13 +50,16 @@ function showSlideFinder(){
             currentSlideNumber -= 1;
         }
     }
-    else{
+    else if(event.target.id ==="next"){
         if(currentSlideNumber === 2){
             currentSlideNumber = 0;
         }
         else{
             currentSlideNumber += 1;
         }
+    }
+    else{
+        currentSlideNumber = event.target.id;
     }
     showCurrentSlide(currentSlideNumber);
 }
@@ -68,7 +69,7 @@ function showCurrentSlide(slideNumber){
         if(slideButtons[i].classList.contains("activeNav")){
             slideButtons[i].classList.remove("activeNav");
         }
-        if(i === slideNumber){
+        if(i == slideNumber){
             slideButtons[i].classList.add("activeNav");
         }
     }
