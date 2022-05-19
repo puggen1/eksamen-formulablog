@@ -360,6 +360,16 @@ grid-area: h2;
 .center{
     margin: 0 auto;
 }
+.filter{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;    
+    justify-content: center;
+    margin: 10px;
+}
+.filter button{
+border-radius: 2px;
+}
 /********************************************
                 posts page
 ***********************************************/
