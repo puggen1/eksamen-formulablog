@@ -601,7 +601,6 @@ form label{
         margin: 0;
     }
     #allPosts .post .blueA{
-        text-align: center;
         padding: 5px;
     }
     #allPosts .post .tagDiv{
@@ -856,7 +855,7 @@ form label{
         "img img img img"
         "h3 h3 date date"
         "ex ex ex ex"
-        "more . tags tags";
+        "more more tags tags";
         grid-template-rows: auto auto auto 0.2fr;
         
 

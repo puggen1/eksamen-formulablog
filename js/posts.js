@@ -10,7 +10,7 @@ let tagsApi = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/tags?per_page=20"
 
 let posts = [];
 let tags = [];
-let filteredPosts = [];
+let filteredPosts;
 //fetching all posts
 posts = await getData(api);
 //tags for filters
@@ -92,6 +92,7 @@ function filterTag(event){
                 </div>`;
             }
             else{
+                showMoreBtn.style.display ="none";
                 break
             }
             html += singlePost;
@@ -107,13 +108,15 @@ function filterTag(event){
        
     }
 function showMore(){
-    if(filterPost){
-        showPosts(filterPost)
+    if(filteredPosts){
+        console.log("ja")
+        console.log(filteredPosts)
+        showPosts(filteredPosts)
     }
     else{
         showPosts(posts);
     }
-    if(x >= posts.length){
+    /*if(x >= posts.length){
         showMoreBtn.style.display ="none";
-    }
+    }*/
 }
