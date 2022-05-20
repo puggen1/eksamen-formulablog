@@ -431,8 +431,15 @@ border-radius: 2px;
 /********************************************
                 contact page
 ***********************************************/
+.hidden{
+    visibility: hidden;
+}
+.error{
+    margin: 0px;
+    color: #fe2200;
+}
 
-form{
+form, #success{
     width: 80%;
     margin: 0 auto;
     display: grid;

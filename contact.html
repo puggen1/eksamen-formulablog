@@ -36,17 +36,26 @@
         <form>
             <label for="name">Name</label>
             <input type="text" id="name" placeholder="Write name here">
+            <p class="hidden error"id="nameMsg">needs to be 5 characters long</p>
             <label for="email">Email</label>
             <input type="text" id="email" placeholder="Write Email here">
+            <p class="hidden error" id="emailMsg">needs to be a valid Email</p>
             <label for="subject">subject</label>
             <input type="text" id="subject" placeholder="Write subject here">
+            <p class="hidden error" id="subjectMsg">needs to be 15 characters long</p>
             <label for="message">message</label>
             <textarea id="message" placeholder="Write message here"></textarea>
+            <p class="hidden error" id="messageMsg">needs to be 25 characters long</p>
+
             <div class="buttons">
-            <a class="green" type="submit">Sumbit</a>
-            <a id="reset">reset</a>
+            <button class="green" id="submitButton" type="submit">Sumbit</button>
+            <button id="reset" type="reset" value="RESET">reset</button>
         </div>
         </form>
+        <div id="success">
+            <p id="successMsg"></p>
+        </div>
+        
     </section>
     </main>
     <footer>
@@ -57,5 +66,6 @@
         <p id="sources">source for pictures: pexels.com, unsplash.com</p>
     </footer>
     <script src="./js/navigation.js"></script>
+    <script src="./js/formValidation.js"></script>
 </body>
 </html>
