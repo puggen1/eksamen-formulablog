@@ -29,19 +29,8 @@ else{
    filterPost("tag", tagId);
 }
 
-//tag buttons
-let filterDiv = document.querySelector(".filter");
-let htmlTags = ""
-for(let tag of tags){
-    htmlTags += `<button class="tag" id="${tag.id}">${tag.name}</button>`;
-    filterDiv.innerHTML = htmlTags;
-}
-let tagBtns = document.querySelectorAll(".filter button");
-for(let btn of tagBtns){
-    btn.addEventListener("click", function (){
-        filterPost("tag", event.target.id);
-    })
-}
+
+
 //filter function
 
 function filterPost(method, filterId){
@@ -70,7 +59,7 @@ function filterTag(event){
 
 
 //show posts, no matter filter
-    async function showPosts(postList){
+    async function showPosts(postList=posts){
         let html = ""
         for (let i = 0; i < x; i++){
             if(i < postList.length){
@@ -119,4 +108,39 @@ function showMore(){
     /*if(x >= posts.length){
         showMoreBtn.style.display ="none";
     }*/
+}
+
+
+
+//tag buttons
+let filterDiv = document.querySelector(".filter");
+let htmlTags = ""
+
+for(let tag of tags){
+    htmlTags += `<button class="tag" id="${tag.id}">${tag.name}</button>`;
+}
+filterDiv.innerHTML += htmlTags;
+let tagBtns = document.querySelectorAll(".filter button");
+for(let btn of tagBtns){
+    btn.addEventListener("click", function(){
+        for(let btns of tagBtns){
+            if(btns == btn){
+                btns.classList.add("active");
+            }
+            else{
+                btns.classList.remove("active");
+            }
+        }
+    })
+    if(btn.classList.contains("all")){
+        btn.addEventListener("click", function(){
+            showPosts(posts);
+        })
+        continue;
+    }
+    console.log(btn)
+    btn.addEventListener("click", function (){
+    filterPost("tag", event.target.id);
+
+    })
 }
