@@ -984,14 +984,18 @@ form label{
         grid-template-columns: 1fr;
         margin: 0 auto;
         width: 80%;
+        max-width: 80%;
      
+    }
+    form input{
+        max-width: 40%;
     }
     form div{
         grid-column: 1/2;
     }
     #message{
-        width: 80%;
-        max-width: 80%;
+        max-width: 250px;
+        min-width: 70%;
     }
     #success{
         grid-column: 2/3;
