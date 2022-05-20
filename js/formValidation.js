@@ -21,11 +21,12 @@ function validateForm(event){
     let messageStatus = inputLength(reqMesLength, message);
     if(nameStatus && emailStatus && SubjectStatus && messageStatus){
         console.log("form submitted");
-        successMessage(success, "Form submitted successfully!");
+        successMessage(success, `<i class="fas fa-check-circle"></i>Form submitted successfully!`);
         }
     else{
         console.log("error");
         hideMessage(success)
+        
 
     }
 }
@@ -41,6 +42,7 @@ function reset(event){
     for(let i = 0; i < 4; i++){
         hideMessage(event.path[2][i]);
     }
+    hideMessage(document.querySelector("#success"))
 }
 
 /***********************************************
@@ -85,8 +87,10 @@ function hideMessage(target){
     messagePlacement.classList.add("hidden")
 }
 function successMessage(target, msg){
-    let messagePlacement = document.querySelector(`#${target.id}Msg`)
+    let messagePlacement = document.querySelector(`#${target.id}Msg`);
+    let messageDiv = document.querySelector(`#${target.id}`);
     console.log(messagePlacement)
     messagePlacement.innerHTML = msg;
     messagePlacement.classList.remove("hidden");
+    messageDiv.classList.remove("hidden");
 }
