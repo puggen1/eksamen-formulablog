@@ -15,6 +15,8 @@ let filteredPosts;
 posts = await getData(api);
 //tags for filters
 tags = await getData(tagsApi);
+
+
 //post placement
 let postSection = document.querySelector("#allPosts");
 let singlePost = "";
@@ -111,26 +113,18 @@ function showMore(){
 }
 
 
-
-//tag buttons
+//tag buttons created
 let filterDiv = document.querySelector(".filter");
 let htmlTags = ""
-
 for(let tag of tags){
     htmlTags += `<button class="tag" id="${tag.id}">${tag.name}</button>`;
 }
 filterDiv.innerHTML += htmlTags;
+// add eventlistener to buttons and toggling active
 let tagBtns = document.querySelectorAll(".filter button");
 for(let btn of tagBtns){
     btn.addEventListener("click", function(){
-        for(let btns of tagBtns){
-            if(btns == btn){
-                btns.classList.add("active");
-            }
-            else{
-                btns.classList.remove("active");
-            }
-        }
+        activeBtn(btn)
     })
     if(btn.classList.contains("all")){
         btn.addEventListener("click", function(){
@@ -138,9 +132,19 @@ for(let btn of tagBtns){
         })
         continue;
     }
-    console.log(btn)
     btn.addEventListener("click", function (){
     filterPost("tag", event.target.id);
 
     })
+}
+
+function activeBtn(btn){
+    for(let btns of tagBtns){
+        if(btns == btn){
+            btns.classList.add("active");
+        }
+        else{
+            btns.classList.remove("active");
+        }
+    }
 }
