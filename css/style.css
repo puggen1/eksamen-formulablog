@@ -374,7 +374,7 @@ grid-area: h2;
     border-radius: 2px;
 }
 /*show all posts / filter / tag*/
-.filter .active{
+.filter .active, .filter button:hover{
     font-size: 1.5rem;
     color: black;
     background-color: white;
