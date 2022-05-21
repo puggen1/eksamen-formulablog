@@ -18,4 +18,14 @@ export async function getImage(featuredImageId){
     
 }
 
+export function showBigImage(image, id){
+    image.classList.add("hoverImg")
+    return `
+    <div class="fullScreen img${id}">
+    <picture class="fullScreenImage">
+    <img  src="${image.src}">
+    </picture>
+    </div>`
 
+}
+//    <i class="fas fa-times"></i>
