@@ -544,7 +544,7 @@ form label{
     min-height: 110px;
     max-height: 110px;
     min-width: 100%;
-    max-width: 250px;
+    max-width: 100%;
 }
 .buttons{
     margin: 10px 0;
