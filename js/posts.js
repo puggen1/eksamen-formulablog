@@ -7,7 +7,8 @@ let urlParams = new URLSearchParams(url);
 let tagId = urlParams.get("tagId");
 let api = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/posts?per_page=20&_embed";
 let tagsApi = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/tags?per_page=20";
-
+//number of posts showing up at start
+let x = 7;
 let posts = [];
 let tags = [];
 let filteredPosts;
@@ -18,7 +19,6 @@ let filteredPosts;
 //post placement
 let postSection = document.querySelector("#allPosts");
 let singlePost = "";
-let x = 7;
 let showMoreBtn = document.querySelector("#bottom");
 showMoreBtn.addEventListener("click", showMore)
 
@@ -76,6 +76,7 @@ startFunction();
 //filter function
 
 async function filterPost(method, filterId){
+    x = 7
     if(method == "tag"){
         filteredPosts =  posts.filter(filterTag, filterId)
         console.log(filteredPosts)
@@ -100,8 +101,10 @@ function filterTag(event){
 }
 
 
+
 //show posts, no matter filter
     async function showPosts(postList=posts){
+        console.log(x)
         let html = ""
         for (let i = 0; i < x; i++){
             if(i < postList.length){
@@ -121,6 +124,10 @@ function filterTag(event){
                ${tags}
                </div>
                 </div>`;
+                if(postList.length > x){
+                    showMoreBtn.style.display ="block";
+
+                }
             }
             else{
                 showMoreBtn.style.display ="none";
@@ -134,11 +141,11 @@ function filterTag(event){
             tag.addEventListener("click",function (){
                 filterPost("tag", event.target.id);
             });
-        }
-        x += 7;
-       
+        }       
     }
 function showMore(){
+    //plus 7(later 10?) so it will show more posts
+    x += 7;
     if(filteredPosts){
         console.log("ja")
         console.log(filteredPosts)
@@ -151,6 +158,3 @@ function showMore(){
         showMoreBtn.style.display ="none";
     }*/
 }
-
-
-
