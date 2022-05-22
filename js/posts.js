@@ -12,10 +12,8 @@ let posts = [];
 let tags = [];
 let filteredPosts;
 //fetching all posts
-posts = await getData(api);
 //tags for filters
-tags = await getData(tagsApi);
-
+//test function to check if i need to fetch data inside a function to make it global and not fetch more than one
 
 //post placement
 let postSection = document.querySelector("#allPosts");
@@ -23,21 +21,63 @@ let singlePost = "";
 let x = 7;
 let showMoreBtn = document.querySelector("#bottom");
 showMoreBtn.addEventListener("click", showMore)
-if(!tagId){
-    console.log("no tags");
-    showPosts(posts);
+
+async function startFunction(){
+    posts = await getData(api);
+    tags = await getData(tagsApi);
+    console.log(posts, tags)
+    if(!tagId){
+        console.log("no tags");
+        await showPosts(posts);
+    }
+    else{
+        await filterPost("tag", tagId);
+    }
+    //tag buttons created
+    let filterDiv = document.querySelector(".filter");
+    let htmlTags = ""
+    for(let tag of tags){
+        htmlTags += `<button class="tag" id="${tag.id}">${tag.name}</button>`;
+    }
+    filterDiv.innerHTML += htmlTags;
+    // add eventlistener to buttons and toggling active
+    let tagBtns = document.querySelectorAll(".filter button");
+    for(let btn of tagBtns){
+        btn.addEventListener("click", function(){
+            activeBtn(btn)
+        })
+        if(btn.classList.contains("all")){
+            btn.addEventListener("click", function(){
+                showPosts(posts);
+            })
+            continue;
+        }
+        btn.addEventListener("click", function (){
+        filterPost("tag", event.target.id);
+
+        })
 }
-else{
-   filterPost("tag", tagId);
+
+function activeBtn(btn){
+    for(let btns of tagBtns){
+        if(btns == btn){
+            btns.classList.add("active");
+        }
+        else{
+            btns.classList.remove("active");
+        }
+    }
 }
+}
+startFunction();
 
 
 
 //filter function
 
-function filterPost(method, filterId){
+async function filterPost(method, filterId){
     if(method == "tag"){
-        filteredPosts = posts.filter(filterTag, filterId)
+        filteredPosts =  posts.filter(filterTag, filterId)
         console.log(filteredPosts)
         }
     else{
@@ -113,38 +153,4 @@ function showMore(){
 }
 
 
-//tag buttons created
-let filterDiv = document.querySelector(".filter");
-let htmlTags = ""
-for(let tag of tags){
-    htmlTags += `<button class="tag" id="${tag.id}">${tag.name}</button>`;
-}
-filterDiv.innerHTML += htmlTags;
-// add eventlistener to buttons and toggling active
-let tagBtns = document.querySelectorAll(".filter button");
-for(let btn of tagBtns){
-    btn.addEventListener("click", function(){
-        activeBtn(btn)
-    })
-    if(btn.classList.contains("all")){
-        btn.addEventListener("click", function(){
-            showPosts(posts);
-        })
-        continue;
-    }
-    btn.addEventListener("click", function (){
-    filterPost("tag", event.target.id);
 
-    })
-}
-
-function activeBtn(btn){
-    for(let btns of tagBtns){
-        if(btns == btn){
-            btns.classList.add("active");
-        }
-        else{
-            btns.classList.remove("active");
-        }
-    }
-}
