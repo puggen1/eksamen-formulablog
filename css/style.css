@@ -133,6 +133,9 @@ p, a, h3, label,textarea, input{
 button{
     border-color: transparent;
 }
+button:hover{
+    cursor: pointer;
+}
 .green{
     background-color: #1F7E53;
     border-radius: 5px;
@@ -235,8 +238,8 @@ i{
     font-size: 30px;
 }
 .carouselNavigation i:hover{
-    background-color: #dcd9d9;
-    border-radius: 50%;
+    background-color: #dcd9d996;
+    border-radius: 40%;
 }
 /********************************************
                 post cards
@@ -276,6 +279,7 @@ i{
     height: 250px;
     /*my soluton to make image fill everything when not same size as the other on that row.*/
     object-fit: cover;
+    object-position: top;
 }
 .post h3{
     display: inline-block;
@@ -598,6 +602,15 @@ form label{
 }
 
 /************************************************************************************
+                        for between mobile and tablet, if there is some weird products, the pictures would be too zoomes in to be good
+***********************************************************************************/
+@media screen and (min-width:500px){
+    .post img{
+        height: 400px;
+
+    }
+}
+/************************************************************************************
                         tablet
 ***********************************************************************************/
 @media screen and (min-width:768px) {
@@ -637,6 +650,11 @@ form label{
         column-gap: 10px;
         
     }
+
+    /*setting the post img to be a good size for the device again*/
+   .post img{
+       height: 300px;
+   }
     /* contact main page tablet */
     #contactBox{
         height: 120px;
@@ -847,16 +865,15 @@ form label{
         display: none;
     }
      /****************************************
-                    main header pc/bigger screens
+                     header pc/bigger screens
     *****************************************/
+    
+    #header{
+       height: 10%;
+    }
     #header #logo{
         height: 100%;
-    }
-    #header #logo img{
-        height: 100%;
-    }
-    #header{
-        height: 100px;
+        width: 50%;
     }
     #nav{
         width: 100%;
@@ -930,6 +947,7 @@ form label{
     }
     #featured #mainPagePosts{
         width: auto;
+        padding: 20px;
         grid-template-columns: 1fr 1fr;
         column-gap: 5%;
         } 

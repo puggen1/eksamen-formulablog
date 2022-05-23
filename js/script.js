@@ -19,7 +19,7 @@ async function showData(data){
     let html = "";
     let post = "";
     for(let i = 0; i < result.length; i++){
-        if(i >= 5){
+        if(i >= 6){
             break
         }
         let posts = result[i];
