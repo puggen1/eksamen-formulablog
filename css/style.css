@@ -273,8 +273,11 @@ i{
     margin-bottom: 10px;
 
 }
-.post img{
+.post picture{
     grid-area: img;
+
+}
+.post img{
     width: 100%;
     height: 250px;
     /*my soluton to make image fill everything when not same size as the other on that row.*/
@@ -1067,8 +1070,15 @@ form label{
         align-items: flex-start;
         flex-direction: column;
         justify-content: center;
-        color: white;
         background-color: #12A2B3;
+    }
+    #contactInfo p{
+        color: black;
+
+        font-size: 1.2rem;
+    }
+    #socialMedia, #ourEmail{
+        border-color: #000000;
     }
     form{
         display: grid;

@@ -11,6 +11,7 @@ let tagsApi = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/tags?per_page=20"
 let posts = [];
 let tags = [];
 let filteredPosts;
+let activePosts = [];
 //fetching all posts
 //tags for filters
 //test function to check if i need to fetch data inside a function to make it global and not fetch more than one
@@ -24,6 +25,7 @@ showMoreBtn.addEventListener("click", showMore)
 
 async function startFunction(){
     posts = await getData(api);
+    activePosts = posts
     tags = await getData(tagsApi);
     console.log(posts, tags)
     if(!tagId){
@@ -48,11 +50,14 @@ async function startFunction(){
         })
         if(btn.classList.contains("all")){
             btn.addEventListener("click", function(){
-                showPosts(posts);
+                x = 10
+                activePosts = posts
+                showPosts(activePosts);
             })
             continue;
         }
         btn.addEventListener("click", function (){
+            x = 10
         filterPost("tag", event.target.id);
 
         })
@@ -76,16 +81,18 @@ startFunction();
 //filter function
 
 async function filterPost(method, filterId){
-    x = 7
+    x = 10
     if(method == "tag"){
         filteredPosts =  posts.filter(filterTag, filterId)
-        console.log(filteredPosts)
+        //so i later can show more without it showing the last filter.
+        activePosts = filteredPosts;
+        console.log(activePosts)
         }
     else{
         console.log("placeholder");
     }
 
-    showPosts(filteredPosts);
+    showPosts(activePosts);
 }
 
 //diffrent filter functions
@@ -142,20 +149,10 @@ function filterTag(event){
                 filterPost("tag", event.target.id);
             });
         }       
-        x += 10;
     }
 function showMore(){
     //plus 7(later 10?) so it will show more posts
-    x += 7;
-    if(filteredPosts){
-        console.log("ja")
-        console.log(filteredPosts)
-        showPosts(filteredPosts)
-    }
-    else{
-        showPosts(posts);
-    }
-    /*if(x >= posts.length){
-        showMoreBtn.style.display ="none";
-    }*/
+    x += 10;
+    console.log(activePosts)
+    showPosts(activePosts)
 }

@@ -1,5 +1,4 @@
 import {getData} from "./getData.js";
-import {api} from "./script.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
 import {createDate} from "./createDate.js";
@@ -7,7 +6,6 @@ let CarouselpostPlacement = document.querySelector(".carouselItems");
 let currentSlideNumber = 0;
 let arrows = document.querySelectorAll(".carouselNavigation i");
 let slideButtons = document.querySelectorAll(`.navBtn`);
-
 export async function carousel(posts){
     for (let arrow of arrows){
         arrow.addEventListener("click", showSlideFinder);
@@ -25,8 +23,8 @@ export async function carousel(posts){
             let singleTag = await createTag(tag);
             tags += singleTag;
         }
-        let imageArray = await getImage(posts[i].featured_media);
-        post = `<div class="post carouselItem${i}"><img src="${imageArray[0]}" alt="${imageArray[1]}">
+        let pictureTag = await getImage(posts[i]);
+        post = `<div class="post carouselItem${i}">${pictureTag}
                 <h3>${posts[i].title.rendered}</h3>
                 <p class="dateAndBy"> ${FormatedDate} by ${posts[i]._embedded.author[0].name} </p>
                 <div class="excerpt">${posts[i].excerpt.rendered.slice(0, 100)} <p> []</p></div>

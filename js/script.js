@@ -29,8 +29,8 @@ async function showData(data){
             let singleTag = await createTag(tag);
             tags += singleTag;
         }
-        let imageArray = await getImage(posts.featured_media);
-        post = `<div class="post"><img src="${imageArray[0]}" alt="${imageArray[1]}">
+        let pictureTag = await getImage(posts);
+        post = `<div class="post">${pictureTag}
                 <h3>${posts.title.rendered}</h3>
                 <p class="dateAndBy"> ${formatedDate} by ${posts._embedded.author[0].name} </p>
                 <div class="excerpt">${posts.excerpt.rendered}</div>
@@ -42,6 +42,7 @@ async function showData(data){
             }
             featuredPosts.innerHTML = html;
             let sortedNew = result.sort(sortNew);
+            console.log(result)
             carousel(sortedNew);
 }
 
