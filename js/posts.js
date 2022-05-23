@@ -8,7 +8,6 @@ let tagId = urlParams.get("tagId");
 let api = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/posts?per_page=20&_embed";
 let tagsApi = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/tags?per_page=20";
 //number of posts showing up at start
-let x = 7;
 let posts = [];
 let tags = [];
 let filteredPosts;
@@ -19,6 +18,7 @@ let filteredPosts;
 //post placement
 let postSection = document.querySelector("#allPosts");
 let singlePost = "";
+let x = 10;
 let showMoreBtn = document.querySelector("#bottom");
 showMoreBtn.addEventListener("click", showMore)
 
@@ -142,6 +142,7 @@ function filterTag(event){
                 filterPost("tag", event.target.id);
             });
         }       
+        x += 10;
     }
 function showMore(){
     //plus 7(later 10?) so it will show more posts
