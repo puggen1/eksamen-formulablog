@@ -4,6 +4,17 @@ import {getImage, showBigImage} from"./getImage.js";
 let webUrl = window.location.search;
 let urlInfo = new URLSearchParams(webUrl);
 let postId = urlInfo.get("id");
+//will find out where you got from, and then the back button will redirect you back there..
+let from = urlInfo.get("from")
+let urlBack = ""
+//i could use only if does not exicst, but i feel this is more clear
+if(from == "index" || !from){
+    urlBack = "index.html";
+}
+else{
+    urlBack = "posts.html";
+}
+/*****************************************/
 let postLocation = document.querySelector("#post");
 let title = document.querySelector("title");
 let header = document.querySelector("h1")
@@ -38,12 +49,10 @@ async function showPost(apiPost){
     
 
 
-    postLocation.innerHTML =`${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div</div>`
-
-    
-
-
-    //big images
+    postLocation.innerHTML =`${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div> </div><a class="backBtn" href="${urlBack}">Back</a>`
+    let preface = document.querySelector("#post p");
+    preface.id = "preface"
+        //big images
     let images = document.querySelectorAll("#post img")
     let bottomOfPage = document.querySelector(".bigImgPlace");
     let imgHtml = "";

@@ -34,7 +34,7 @@ async function showData(data){
                 <a class="h3Link" href="singlepost.html?id=${posts.id}"><h3>${posts.title.rendered}</h3></a>
                 <p class="dateAndBy"> ${formatedDate} by ${posts._embedded.author[0].name} </p>
                 <div class="excerpt">${posts.excerpt.rendered}</div>
-                <a class="blueA" href="singlepost.html?id=${posts.id}">Read more</a>
+                <a class="blueA" href="singlepost.html?id=${posts.id}&from=index"">Read more</a>
                 <div class="tagDiv">
            ${tags}
            </div> </div>`;

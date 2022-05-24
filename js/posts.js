@@ -126,7 +126,7 @@ function filterTag(event){
                 <a href="singlepost.html?id=${postList[i].id}" class="h3Link"><h3>${postList[i].title.rendered}</h3></a>
                 <p class="dateAndBy">by ${postList[i]._embedded.author[0].name}, on ${formatedDate}</p>
                 <div class="excerpt">${postList[i].excerpt.rendered}</div>
-                <a class="blueA" href="singlepost.html?id=${postList[i].id}">Read More</a>
+                <a class="blueA" href="singlepost.html?id=${postList[i].id}&from=posts"">Read More</a>
                 <div class="tagDiv">
                ${tags}
                </div>
