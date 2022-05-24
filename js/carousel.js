@@ -2,7 +2,7 @@ import {getData} from "./getData.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
 import {createDate} from "./createDate.js";
-let CarouselpostPlacement = document.querySelector(".carouselItems");
+let carouselpostPlacement = document.querySelector(".carouselItems");
 let currentSlideNumber = 0;
 let arrows = document.querySelectorAll(".carouselNavigation i");
 let slideButtons = document.querySelectorAll(`.navBtn`);
@@ -16,6 +16,11 @@ export async function carousel(posts){
     let html = "";
     let post = ""
     let numberOfSlides = 3;
+    //if screen is over 1000px, make it two column
+    if(window.innerWidth >= 1000){
+        console.log("større skjermer")
+        carouselpostPlacement.style.gridTemplateColumns = "1fr 1fr";
+    }
     for(let i = 0; i < numberOfSlides; i++){
         let FormatedDate = createDate(posts[i].date)
         let tags = ""
@@ -34,8 +39,8 @@ export async function carousel(posts){
            </div> </div>`;
                 html += post;
             }
-            CarouselpostPlacement.innerHTML = html;
-            showCurrentSlide(0);
+            carouselpostPlacement.innerHTML = html;
+            showCurrentSlide(currentSlideNumber);
 }
 
 function showSlideFinder(){
@@ -74,9 +79,19 @@ function showCurrentSlide(slideNumber){
     let currentSlide = document.querySelector(`.carouselItem${slideNumber}`);
     console.log(currentSlide);
     let slides = document.querySelectorAll(".carouselItems .post");
-    for(let slide of slides){
-        slide.style.display = "none";
+    for(let i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";
     }
+    if(window.innerWidth >= 1000){
         currentSlide.style.display = "grid";
+        //this works ok, there is a type error in console when doing this, this is because when on the last slide, it tries to go to 4 not 0, i dont know it i want to fix this or not....
+        slideNumber++
+        currentSlide = document.querySelector(`.carouselItem${slideNumber}`)
+        console.log(currentSlide, slideNumber)
+
+        currentSlide.style.display = "grid";
+
+    }
+    currentSlide.style.display = "grid";
 
 }

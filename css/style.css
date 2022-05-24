@@ -503,7 +503,8 @@ grid-area: h2;
     }
     
 }
-.hoverImg:hover{
+/*also added post to this so it looks more interactive*/
+.hoverImg:hover, .post:hover{
     animation-name: hoverOverImg;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
@@ -840,7 +841,7 @@ form label{
 /*******************************************
                bigger screens 
 ********************************************/
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1000px) {
        /****************************************
                    various global things pc/bigger screens
     *****************************************/
@@ -895,9 +896,15 @@ form label{
     *****************************************/
     #carousel{
         margin: 0 auto;
+        width: 80%;
     }
     .carouselItems{
-   min-width: 680px;
+        
+        gap: 50px;
+        width: 100%;
+    }
+    .carouselItems img, .carouselItems picture{
+        height: 400px;
     }
     .navBtn:hover{
         background-color: #0DE7FF;

@@ -116,13 +116,13 @@ function filterTag(event){
         for (let i = 0; i < x; i++){
             if(i < postList.length){
                 let formatedDate = createDate(posts[i].date)
-                let ImageArray = await getImage(postList[i].featured_media);
+                let imageTag = await getImage(postList[i]);
                 let tags = "";
                 for(let tag of postList[i]._embedded['wp:term'][1]){
                     let singleTag = await createTag(tag, "button");
                     tags += singleTag;
                 }
-                singlePost = `<div class="post"><img src="${ImageArray[0]}" alt="${ImageArray[1]}">
+                singlePost = `<div class="post">${imageTag}
                 <h3>${postList[i].title.rendered}</h3>
                 <p class="dateAndBy">by ${postList[i]._embedded.author[0].name}, on the ${formatedDate}</p>
                 <div class="excerpt">${postList[i].excerpt.rendered}</div>
