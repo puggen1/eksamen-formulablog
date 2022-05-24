@@ -284,13 +284,16 @@ i{
     object-fit: cover;
     object-position: top;
 }
-.post h3{
+.post a.h3Link{
     display: inline-block;
     grid-area: h3;
     padding: 5px;
-    margin: 0;
+    color: #000000;
     text-decoration: underline #fe2200 2px;
     
+}
+.post a.h3Link h3{
+    margin: 0;
 }
 .post .dateAndBy{
     grid-area: date;
@@ -422,21 +425,16 @@ grid-area: h2;
     width: 80%;
     margin: 0 auto;
 }
-
+#post p{
+}
 .postInfo{
     width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom: #fe2200 solid 2px;
 }
-.tags{
-    grid-column: 1/4;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-}
+
 #author{
     grid-column: 1/2;
 }
@@ -454,18 +452,16 @@ grid-area: h2;
 #post figure img{
     height: 100%;
 }
-.singlePostInfo{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.singlePostInfo div.tags{
+.postInfo div.tags{
     grid-column: 2/4;
     grid-row: 1/2;
     display: flex;
     gap: 10px;
+    justify-items: center;
+    align-items: center;
 
 }
-.singlePostInfo div.byDate{
+.postInfo div.byDate{
     display: flex;
     gap: 5px;
     grid-row: 2/3;
@@ -690,7 +686,7 @@ form label{
         grid-template-areas:
         "h3 h3 img img"
         "ex ex img img"
-        "data date img img"
+        "date date img img"
         "tags more img img";
         padding-bottom:10px;
         margin-bottom: 10px;
@@ -698,10 +694,9 @@ form label{
     #allPosts .post img{
         width: 100%;
     }
-    #allPosts .post h3{
+    #allPosts {
         display: inline-block;
         padding: 5px;
-        text-decoration: underline #fe2200 2px;
         
     }
     #allPosts .post .dateAndBy{
@@ -715,9 +710,11 @@ form label{
     }
     #allPosts .post .blueA{
         padding: 5px;
+        text-align: center;
     }
     #allPosts .post .tagDiv{
-
+        flex-direction: row;
+        margin-left: 5px;
     }
     #allPosts .post .tag{
         

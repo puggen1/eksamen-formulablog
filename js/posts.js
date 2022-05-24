@@ -123,8 +123,8 @@ function filterTag(event){
                     tags += singleTag;
                 }
                 singlePost = `<div class="post">${imageTag}
-                <h3>${postList[i].title.rendered}</h3>
-                <p class="dateAndBy">by ${postList[i]._embedded.author[0].name}, on the ${formatedDate}</p>
+                <a href="singlepost.html?id=${postList[i].id}" class="h3Link"><h3>${postList[i].title.rendered}</h3></a>
+                <p class="dateAndBy">by ${postList[i]._embedded.author[0].name}, on ${formatedDate}</p>
                 <div class="excerpt">${postList[i].excerpt.rendered}</div>
                 <a class="blueA" href="singlepost.html?id=${postList[i].id}">Read More</a>
                 <div class="tagDiv">

@@ -36,7 +36,7 @@ async function showPost(apiPost){
     
 
 
-    postLocation.innerHTML =`<picture><img src="assets/test.png"></picture> ${apiPost.content.rendered} <div class="singlePostInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags">${tags}</div</div>`
+    postLocation.innerHTML =`<picture><img src="assets/test.png"></picture> ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div</div>`
 
     
 

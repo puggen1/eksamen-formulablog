@@ -84,7 +84,7 @@ function showCurrentSlide(slideNumber){
     }
     if(window.innerWidth >= 1000){
         currentSlide.style.display = "grid";
-        //this works ok, there is a type error in console when doing this, this is because when on the last slide, it tries to go to 4 not 0, i dont know it i want to fix this or not....
+        //this will cause error on last slide, but i dont know of i want to change it yet....
         slideNumber++
         currentSlide = document.querySelector(`.carouselItem${slideNumber}`)
         console.log(currentSlide, slideNumber)
