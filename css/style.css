@@ -447,7 +447,10 @@ grid-area: h2;
     margin-bottom: 7px;
 }
 #post figure{
-    margin: auto 5px;
+    margin: auto 0px;
+    border-bottom: solid #fe2200 0.3px;
+    border-top: solid #fe2200 0.3px;
+    padding: 5px 0px;
 }
 #post figure img{
     height: 100%;

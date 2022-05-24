@@ -1,6 +1,6 @@
 import {createTag} from "./createTag.js";
 import {createDate} from "./createDate.js";
-import {showBigImage} from"./getImage.js";
+import {getImage, showBigImage} from"./getImage.js";
 let webUrl = window.location.search;
 let urlInfo = new URLSearchParams(webUrl);
 let postId = urlInfo.get("id");
@@ -21,6 +21,8 @@ fetch(api)
 async function showPost(apiPost){
     let tags = ""
     let singleTag = "";
+    let pictureTag = await getImage(apiPost)
+    console.log(pictureTag)
     if(!apiPost._embedded['wp:term'][1][0]){
             console.log("no tags")
         }
@@ -36,7 +38,7 @@ async function showPost(apiPost){
     
 
 
-    postLocation.innerHTML =`<picture><img src="assets/test.png"></picture> ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div</div>`
+    postLocation.innerHTML =`${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div</div>`
 
     
 
