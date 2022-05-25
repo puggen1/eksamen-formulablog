@@ -1,6 +1,6 @@
-
 let form = document.querySelector("form");
 form.addEventListener("submit", validateForm);
+
 let reqNameLength = 5;
 let reqSubLength = 15;
 let reqMesLength = 25;
