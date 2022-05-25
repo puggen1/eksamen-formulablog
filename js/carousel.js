@@ -30,7 +30,7 @@ export async function carousel(posts){
         }
         let pictureTag = await getImage(posts[i]);
         post = `<div class="post carouselItem${i}">${pictureTag}
-                <h3>${posts[i].title.rendered}</h3>
+                <a class="h3Link" href="singlepost.hmtl?id=${posts[i].id}&from=index"><h3>${posts[i].title.rendered}</h3></a>
                 <p class="dateAndBy"> ${FormatedDate} by ${posts[i]._embedded.author[0].name} </p>
                 <div class="excerpt">${posts[i].excerpt.rendered.slice(0, 100)} <p> []</p></div>
                 <a class="blueA" href="singlepost.html?id=${posts[i].id}&from=index">Read more</a>

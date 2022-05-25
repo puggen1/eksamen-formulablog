@@ -84,9 +84,14 @@ async function showPost(apiPost){
             }
         })
     }*/
+     let bigPictureTag = document.querySelectorAll(".fullScreen picture");
     for(let pictureBox of bigPictures){
         pictureBox.addEventListener("click", function(){
-            pictureBox.style.display="none";
+            //this if statement will check if you are pressing the img, if you are, it will not hide the image
+            if(event.target.nodeName == "DIV" || event.target.nodeName == "I"){
+                pictureBox.style.display="none";
+                console.log(event.target.nodeName);
+            }
         })
     }
 }
