@@ -53,13 +53,13 @@ async function showPost(apiPost){
     let preface = document.querySelector("#post p");
     preface.id = "preface"
         //big images
-    let images = document.querySelectorAll("#post img")
+    let images = document.querySelectorAll("#post img");
     let bottomOfPage = document.querySelector(".bigImgPlace");
     let imgHtml = "";
     let i = 0
     for (let img of images){
         img.classList.add(`img${i}`)
-        let imgresponse = showBigImage(img, i);
+        let imgresponse = showBigImage(images, i);
         imgHtml += imgresponse
         i++
     }

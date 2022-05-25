@@ -38,11 +38,11 @@ export async function getImage(post){
 }
 
 export function showBigImage(image, id){
-    image.classList.add("hoverImg")
+    image[id].classList.add("hoverImg")
     return `
     <div class="fullScreen img${id}">
     <picture class="fullScreenImage">
-    <img  src="${image.src}">
+    <img  src="${image[id].currentSrc}">
     </picture>
     </div>`
 

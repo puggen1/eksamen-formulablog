@@ -465,6 +465,7 @@ grid-area: h2;
     gap: 10px;
     justify-items: center;
     align-items: center;
+    flex-direction: row-reverse;
 
 }
 .postInfo div.byDate{
@@ -495,6 +496,9 @@ grid-area: h2;
     top:50%;
     width: 90%;
     margin: 0 auto;
+}
+.fullScreenImage img{
+    width: 100%;
 }
 @keyframes hoverOverImg {
     from{
@@ -908,6 +912,9 @@ form label{
     #nav a{
         font-size: 1.5rem;
     }
+    #nav .current{
+        color: white;
+    }
     #nav a:hover{
         color: white;
         text-decoration: underline;
@@ -1028,6 +1035,23 @@ form label{
         display: flex;
         flex-direction: column;
         width: 55%;
+    }
+    #post #preface{
+        background-color: white;
+        border-right: solid 5px #12a2b3;
+        border-radius: 0;
+    }
+    .backBtn{
+        margin: 10px auto;
+    }
+    #post figure img{
+        max-height: 500px;
+    }
+    #post p{
+        max-width: 540px;
+    }
+    .fullScreenImage{
+        max-width: 60%;
     }
      /****************************************
             about  page pc/bigger screens
