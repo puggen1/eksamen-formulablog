@@ -23,7 +23,6 @@ export async function getImage(post){
         <source media="(min-width:700px)" srcset="${imageSizes.full.source_url}">
         <img src="${imageSizes.medium.source_url}" alt="${altText}"></picture>
         `
-        console.log(picture)
         return picture
     }
     else{
@@ -39,10 +38,12 @@ export async function getImage(post){
 
 export function showBigImage(image, id){
     image[id].classList.add("hoverImg")
+    console.log(image)
+    console.log(`new image tag will be: <img src="${image[id].currentSrc}">`)
     return `
     <div class="fullScreen img${id}">
     <picture class="fullScreenImage">
-    <img  src="${image[id].currentSrc}">
+    <img src="${image[id].currentSrc}">
     </picture>
     </div>`
 

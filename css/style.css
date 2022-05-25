@@ -1050,8 +1050,13 @@ form label{
     #post p{
         max-width: 540px;
     }
+    
     .fullScreenImage{
-        max-width: 60%;
+        width: auto;
+        height: 80%;
+    }
+    .fullScreenImage img{
+        height: 100%;
     }
      /****************************************
             about  page pc/bigger screens
