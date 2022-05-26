@@ -176,7 +176,7 @@ button:hover{
     font-size: 1.5rem;
     color: #12A2B3;
 }
-.tag, .all{
+.tag, .all, .sortBtn{
     background-color: #12A2B3;
     font-size: 1.5rem;
     text-decoration: none;
@@ -402,7 +402,6 @@ grid-area: h2;
 }
 
 .filter button{
-    
     border-radius: 2px;
 }
 /*show all posts / filter / tag*/
@@ -415,6 +414,10 @@ grid-area: h2;
     border:solid 2px #12a2b3;
     
 
+}
+.filter .sortBtn{
+    flex: 1 0 100%;
+    
 }
 
 /********************************************

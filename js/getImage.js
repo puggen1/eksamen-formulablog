@@ -1,12 +1,7 @@
 
 import {getData} from "./getData.js";
-
-//let mediaLibrary = "https://bendik.one/www/eksamenfed/wp-json/wp/v2/media/";
-
 export async function getImage(post){
     if(post){
-        //let mediaLocation = mediaLibrary + post;
-        //let mediaResult = await getData(mediaLocation);
         console.log(post)
         let imageSizes = post._embedded[`wp:featuredmedia`][0].media_details.sizes;
         let altText = post._embedded[`wp:featuredmedia`][0].alt_text;

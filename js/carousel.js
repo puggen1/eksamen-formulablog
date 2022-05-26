@@ -30,15 +30,15 @@ export async function carousel(posts){
             tags += singleTag;
         }
         let pictureTag = await getImage(posts[i]);
-        post = showPost(posts, FormatedDate, pictureTag, tags, "index")
+        post = showPost(posts[i], FormatedDate, pictureTag, tags, "index", `carouselItem${i}`)
                 html += post;
             }
             carouselpostPlacement.innerHTML = html;
+
             showCurrentSlide(currentSlideNumber);
 }
 
 function showSlideFinder(){
-    console.log(event.target.id);
     if(event.target.id === "previous"){
         if(currentSlideNumber === 0){
             currentSlideNumber = 2;
@@ -71,7 +71,6 @@ function showCurrentSlide(slideNumber){
         }
     }
     let currentSlide = document.querySelector(`.carouselItem${slideNumber}`);
-    console.log(currentSlide);
     let slides = document.querySelectorAll(".carouselItems .post");
     for(let i = 0; i < slides.length; i++){
         slides[i].style.display = "none";
@@ -81,7 +80,6 @@ function showCurrentSlide(slideNumber){
         //this will cause error on last slide, but i dont know of i want to change it yet....
         slideNumber++
         currentSlide = document.querySelector(`.carouselItem${slideNumber}`)
-        console.log(currentSlide, slideNumber)
 
         currentSlide.style.display = "grid";
 

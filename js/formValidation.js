@@ -1,6 +1,6 @@
 let form = document.querySelector("form");
 form.addEventListener("submit", validateForm);
-
+//the required lengths for the form
 const reqNameLength = 5;
 const reqSubLength = 15;
 const reqMesLength = 25;
@@ -83,10 +83,10 @@ function showMessage(target, requirement="a valid Email"){
 }
 function hideMessage(target){
     let messagePlacement = document.querySelector(`#${target.id}Msg`)
-    //so screen readers dont read the message
     messagePlacement.classList.add("hidden")
 }
 function successMessage(target, msg){
+    //this message box shows up when all the fields are true
     let messagePlacement = document.querySelector(`#${target.id}Msg`);
     let messageDiv = document.querySelector(`#${target.id}`);
     console.log(messagePlacement)
