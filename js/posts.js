@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+import { showPost } from "./showPost.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
 import {createDate} from "./createDate.js";
@@ -122,15 +123,7 @@ function filterTag(event){
                     let singleTag = await createTag(tag, "button");
                     tags += singleTag;
                 }
-                singlePost = `<div class="post">${imageTag}
-                <a href="singlepost.html?id=${postList[i].id}" class="h3Link"><h3>${postList[i].title.rendered}</h3></a>
-                <p class="dateAndBy">by ${postList[i]._embedded.author[0].name}, on ${formatedDate}</p>
-                <div class="excerpt">${postList[i].excerpt.rendered}</div>
-                <a class="blueA" href="singlepost.html?id=${postList[i].id}&from=posts"">Read More</a>
-                <div class="tagDiv">
-               ${tags}
-               </div>
-                </div>`;
+                singlePost = showPost(postList[i], formatedDate, imageTag, tags, "posts")
                 if(postList.length > x){
                     showMoreBtn.style.display ="block";
 

@@ -19,7 +19,7 @@ export async function getImage(post){
         console.log(sources)
         */
         let picture = `
-        <picture> 
+        <picture>
         <source media="(min-width:700px)" srcset="${imageSizes.full.source_url}">
         <img src="${imageSizes.medium.source_url}" alt="${altText}"></picture>
         `

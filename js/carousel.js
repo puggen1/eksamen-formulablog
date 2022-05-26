@@ -1,4 +1,5 @@
 import {getData} from "./getData.js";
+import { showPost } from "./showPost.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
 import {createDate} from "./createDate.js";
@@ -29,14 +30,7 @@ export async function carousel(posts){
             tags += singleTag;
         }
         let pictureTag = await getImage(posts[i]);
-        post = `<div class="post carouselItem${i}">${pictureTag}
-                <a class="h3Link" href="singlepost.hmtl?id=${posts[i].id}&from=index"><h3>${posts[i].title.rendered}</h3></a>
-                <p class="dateAndBy"> ${FormatedDate} by ${posts[i]._embedded.author[0].name} </p>
-                <div class="excerpt">${posts[i].excerpt.rendered.slice(0, 100)} <p> []</p></div>
-                <a class="blueA" href="singlepost.html?id=${posts[i].id}&from=index">Read more</a>
-                <div class="tagDiv">
-           ${tags}
-           </div> </div>`;
+        post = showPost(posts, FormatedDate, pictureTag, tags, "index")
                 html += post;
             }
             carouselpostPlacement.innerHTML = html;

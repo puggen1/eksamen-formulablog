@@ -1,14 +1,14 @@
 let form = document.querySelector("form");
 form.addEventListener("submit", validateForm);
 
-let reqNameLength = 5;
-let reqSubLength = 15;
-let reqMesLength = 25;
-let success = document.querySelector("#success");
+const reqNameLength = 5;
+const reqSubLength = 15;
+const reqMesLength = 25;
+const success = document.querySelector("#success");
+//currently the same regex i used in the js ca, it works so i dont know if i should switch it
 let regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 function validateForm(event){
     event.preventDefault();
-    console.log(event);
     //path to what need validation
     let name = event.path[0][0];
     let email = event.path[0][1];
@@ -34,11 +34,11 @@ function validateForm(event){
 /***********************************************
 Reset Button
 ***********************************************/
-//might not need
+//since the reset button reset all fields on default i first thought i didnt need this, but then i found out that i needed to hide the error messages.
+
 let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", reset)
 function reset(event){
-    console.log(event)
     for(let i = 0; i < 4; i++){
         hideMessage(event.path[2][i]);
     }

@@ -1,5 +1,6 @@
 console.log("hello from script.js");
 import {getData} from "./getData.js";
+import { showPost } from "./showPost.js";
 import {getImage} from "./getImage.js";
 import {createTag} from "./createTag.js";
 import {carousel} from "./carousel.js";
@@ -30,14 +31,8 @@ async function showData(data){
             tags += singleTag;
         }
         let pictureTag = await getImage(posts);
-        post = `<div class="post">${pictureTag}
-                <a class="h3Link" href="singlepost.html?id=${posts.id}&from=index"><h3>${posts.title.rendered}</h3></a>
-                <p class="dateAndBy"> ${formatedDate} by ${posts._embedded.author[0].name} </p>
-                <div class="excerpt">${posts.excerpt.rendered}</div>
-                <a class="blueA" href="singlepost.html?id=${posts.id}&from=index"">Read more</a>
-                <div class="tagDiv">
-           ${tags}
-           </div> </div>`;
+        //this will now be a function i can reuse on carousel and posts page.
+        let post = showPost(posts, formatedDate, pictureTag, tags, "index");
                 html += post;
             }
             featuredPosts.innerHTML = html;
