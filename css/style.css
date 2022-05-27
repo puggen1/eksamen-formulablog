@@ -704,7 +704,8 @@ form label{
     /***********************************************************
                                 all posts page tablet(this should be used on carousel tablet also)
     *************************************************************/
-    #allPosts .post{
+    #allPosts .post, .carouselItems .post{
+        max-height: 300px;
         border-radius: var(--noBorderRadius);
         grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
         grid-template-areas:
@@ -712,10 +713,12 @@ form label{
         "ex ex img img"
         "date date img img"
         "more tags img img";
+        padding-bottom: 0px;
     }
     #allPosts .post img{
         width: 100%;
     }
+   
     #allPosts {
         display: inline-block;
         padding: 5px;
@@ -725,7 +728,8 @@ form label{
         margin: 0;
     }
    
-    #allPosts .post .tagDiv{
+    #allPosts .post .tagDiv, .carouselItems .tagDiv{
+        padding-bottom: 10px;
         margin-left: 5px;
     }
    
