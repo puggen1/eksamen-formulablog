@@ -9,6 +9,12 @@
         opacity: 1;
     }
 }
+:root{
+    --redColor: #fe2200;
+    --blueColor: #12a2b3;
+    --greenColor: #1f7e53;
+    --noBorderRadius: 0px;
+}
 body{
     margin: 0 auto;
     display: flex;
@@ -29,18 +35,32 @@ img{
 }
 /*everything with red border bottom  and global things*/
 #hero, h2, h1, #carousel{
-    border-bottom: 2px solid #fe2200;
+    border-bottom: 2px solid var(--redColor);
 }
 .sideBorder{
-    border-left: 0.3px solid #fe2200;
-    border-right: 0.3px solid #fe2200;
+    border-left: 0.3px solid var(--redColor);
+    border-right: 0.3px solid var(--redColor);
     padding:2px 7px 2px 7px
+}
+.errorMessage{
+    display: none;
+    background-color: var(--redColor);
+    width: 90%;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 0 auto 10px auto;
+}
+.errorMessage p{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 2px;
 }
 /********************************************
                 header
 ***********************************************/
 #header{
-background-color: #fe2200;
+background-color: var(--redColor);
 padding: 0px;
 margin: 0px;
 display: grid;
@@ -64,8 +84,8 @@ align-items: center ;
     position: absolute;
     grid-template-columns: 1fr;
     z-index: 1;
-    background-color: #12a2b3;
-    top: 50px;
+    background-color: var(--blueColor);
+    top: 49px;
     justify-items: center;
     align-items: center;
 }
@@ -76,7 +96,7 @@ align-items: center ;
     text-align: center;
     grid-column: 1/2;
     color: #000000;
-    text-decoration: underline solid #fe2200;
+    text-decoration: underline solid var(--redColor);
 }
 #nav a.active{
     color: white;
@@ -85,7 +105,7 @@ align-items: center ;
                 footer
 ***********************************************/
 footer{
-    background-color: #fe2200;
+    background-color: var(--redColor);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
@@ -137,7 +157,7 @@ button:hover{
     cursor: pointer;
 }
 .green{
-    background-color: #1F7E53;
+    background-color: var(--greenColor);
     border-radius: 5px;
     text-align: center;
     color: white;
@@ -174,10 +194,10 @@ button:hover{
 .blueA{
     text-decoration: underline;
     font-size: 1.5rem;
-    color: #12A2B3;
+    color: var(--blueColor);
 }
 .tag, .all, .sortBtn{
-    background-color: #12A2B3;
+    background-color: var(--blueColor);
     font-size: 1.5rem;
     text-decoration: none;
     color: white;
@@ -199,7 +219,7 @@ button:hover{
 }
 .blueBox{
     border-radius: 13px;
-    background-color: #12a2b3;
+    background-color: var(--blueColor);
     padding: 5px;
 
 }
@@ -262,7 +282,6 @@ i{
     border:  0.1px solid #000000;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr auto auto auto auto;
     grid-template-areas: 
     "img img img img"
     "h3 h3 h3 h3"
@@ -289,7 +308,7 @@ i{
     grid-area: h3;
     padding: 5px;
     color: #000000;
-    text-decoration: underline #fe2200 2px;
+    text-decoration: underline var(--redColor) 2px;
     
 }
 .post a.h3Link h3{
@@ -411,7 +430,7 @@ grid-area: h2;
     font-size: 1.5rem;
     color: black;
     background-color: white;
-    border:solid 2px #12a2b3;
+    border:solid 2px var(--blueColor);
     
 
 }
@@ -435,7 +454,7 @@ grid-area: h2;
     margin: 10px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: #fe2200 solid 2px;
+    border-bottom: var(--redColor) solid 2px;
 }
 
 #author{
@@ -454,8 +473,8 @@ grid-area: h2;
 }
 #post figure{
     margin: auto 0px;
-    border-bottom: solid #fe2200 0.3px;
-    border-top: solid #fe2200 0.3px;
+    border-bottom: solid var(--redColor) 0.3px;
+    border-top: solid var(--redColor) 0.3px;
     padding: 5px 0px;
 }
 #post figure img{
@@ -527,7 +546,7 @@ grid-area: h2;
 }
 .error{
     margin: 0px;
-    color: #fe2200;
+    color: var(--redColor);
 }
 
 form, #success{
@@ -536,11 +555,11 @@ form, #success{
     display: grid;
 }
 #successMsg{
-    background-color: #1F7E53;
+    background-color: var(--greenColor);
     color: white;
     padding: 10px;
     text-align: center;
-    border-radius: 3.5px;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 form input, textarea{
@@ -603,11 +622,11 @@ form label{
     width: 80%;
 }
 .aboutInfo{
-    border-top: solid 2px #fe2200;
+    border-top: solid 2px var(--redColor);
 }
 .aboutInfo h3{
     text-align: center;
-    text-decoration: underline 2px #fe2200;
+    text-decoration: underline 2px var(--redColor);
 }
 .aboutInfo p{
     width: 80%;
@@ -634,9 +653,6 @@ form label{
     #header{
         grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
     }
-    #header a{
-        grid-column: 2/3;
-    }
     #header i{
         display: none;
     }
@@ -646,9 +662,7 @@ form label{
     }
     #nav a{
         text-decoration: none;
-        color: #000000;
-        font-family: 'Racing Sans One', cursive;
-        text-align: center;
+        
     }
     #tempNav{
         display: none;
@@ -691,18 +705,13 @@ form label{
                                 all posts page tablet(this should be used on carousel tablet also)
     *************************************************************/
     #allPosts .post{
-        border-radius: 0px;
-        box-shadow: 0px 3.7px 3.7px rgba(0, 0, 0, 0.25);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        border-radius: var(--noBorderRadius);
         grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
         grid-template-areas:
         "h3 h3 img img"
         "ex ex img img"
         "date date img img"
-        "tags more img img";
-        padding-bottom:10px;
-        margin-bottom: 10px;
+        "more tags img img";
     }
     #allPosts .post img{
         width: 100%;
@@ -712,26 +721,14 @@ form label{
         padding: 5px;
         
     }
-    #allPosts .post .dateAndBy{
-        padding: 5px;
-        margin: 0px;
-    }
-    #allPosts .post .excerpt{
-    }
     #allPosts.excerpt p{
         margin: 0;
     }
-    #allPosts .post .blueA{
-        padding: 5px;
-        text-align: center;
-    }
+   
     #allPosts .post .tagDiv{
-        flex-direction: row;
         margin-left: 5px;
     }
-    #allPosts .post .tag{
-        
-    }
+   
  /***********************************************************
                                 single post page tablet
 *************************************************************/
@@ -758,7 +755,7 @@ form label{
 
     }
     #post #preface{
-        background-color: #12a2b3;
+        background-color: var(--blueColor);
         font-weight: 500;
         padding: 10px;
         grid-column: 1/2;
@@ -786,7 +783,7 @@ form label{
     }
     /*  temporarily removed 
     #post p:first-of-type{
-        background-color: #12A2B3;
+        background-color: var(--blueColor);
         width: 50%;
         padding: 20px;
         border-radius: 10px;
@@ -799,15 +796,15 @@ form label{
     .aboutBox{
         width: 70%;
     }
-    #personInfo{
+    #personInfo, #pageInfo{
         border-top: solid 120px #222222;
     }
     .aboutInfo{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: center
-
-
+        align-items: center;
+        margin-bottom: 20px;
+        justify-items: center;
     }
     .aboutInfo div{
         grid-column: 1/2;
@@ -822,9 +819,6 @@ form label{
     #contact{
         width: 75%;
         margin: 0 auto;
-    }
-    #contact img{
-        max-width: 100%;
     }
     #contact .info, form{
         padding: 5px 7%;
@@ -930,7 +924,7 @@ form label{
         width: 80%;
     }
     .carouselItems{
-        
+        grid-template-columns: 1fr 1fr;
         gap: 50px;
         width: 100%;
     }
@@ -961,7 +955,7 @@ form label{
     }
     /*********************************************/
     #aboutBox{
-        border-radius: 0px;
+        border-radius: var(--noBorderRadius);
         height: 250px;
         grid-template-columns: 1fr 1fr 0.5fr 1fr;
         justify-items: normal;
@@ -989,18 +983,16 @@ form label{
     #featured #mainPagePosts{
         width: auto;
         padding: 20px;
-        grid-template-columns: 1fr 1fr;
         column-gap: 5%;
         } 
      /****************************************
             main page contact box pc/bigger screens
     *****************************************/
     #mainpageContact{
-        padding: 0px;
         grid-template-rows: auto auto;
     }
     #contactBox{
-        border-radius: 0px;
+        border-radius: var(--noBorderRadius);
         margin-bottom: 0px;
         flex-direction: column;
         padding: 10px;
@@ -1014,8 +1006,8 @@ form label{
 #allPosts{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 80%;
     gap: 10px 50px;
-    width: 70%;
 }
     #allPosts .post{
         grid-template-areas:
@@ -1041,8 +1033,8 @@ form label{
     }
     #post #preface{
         background-color: white;
-        border-right: solid 5px #12a2b3;
-        border-radius: 0;
+        border-right: solid 5px var(--blueColor);
+        border-radius: var(--noBorderRadius);
     }
     .backBtn{
         margin: 10px auto;
@@ -1073,13 +1065,14 @@ form label{
         height: 400px;
     }
     .aboutBox img{
-        height: 70%;
+        max-height: 70%;
+        max-width: 70%;
         width: auto;
     }
     .fillerDiv{
         height: 200px;
         width: 100%;
-        background-color: #12A2B3;
+        background-color: var(--blueColor);
     }
     #personInfo,#pageInfo{
         border-top: none;
@@ -1094,7 +1087,6 @@ form label{
         max-width: 50%;
     }
     .aboutInfo img{
-        grid-row: 2/3;
         padding: 10px;
     }
     .aboutInfo div{
@@ -1130,7 +1122,7 @@ form label{
         align-items: flex-start;
         flex-direction: column;
         justify-content: center;
-        background-color: #12A2B3;
+        background-color: var(--blueColor);
     }
     #contactInfo p{
         color: black;
@@ -1179,5 +1171,8 @@ form label{
         padding: 0px 5%;
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 80px;
+    }
+    #allPosts{
+        width: 70%;
     }
 }

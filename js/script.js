@@ -36,7 +36,7 @@ async function showData(data){
     featuredPosts.innerHTML = html;
     //the carousel function have some similarities, but also does more to make it interactive
     //was thinking of sending the html variable to carousel, but i choosed to run the whole show post again there.
-    
+
     let sortedNew = result.sort(sortNew);
     carousel(sortedNew);
 }

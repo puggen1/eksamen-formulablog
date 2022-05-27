@@ -1,4 +1,5 @@
 import {createTag} from "./createTag.js";
+import { getData } from "./getData.js";
 import {createDate} from "./createDate.js";
 import {getImage, showBigImage} from"./getImage.js";
 let webUrl = window.location.search;
@@ -24,12 +25,12 @@ if(!postId){
 
 let api = `https://www.bendik.one/www/eksamenfed/wp-json/wp/v2/posts/` + postId + "?_embed";
 
-fetch(api)
+/*fetch(api)
 .then(result => result.json())
 .then(formatedResult => showPost(formatedResult));
-
-
-async function showPost(apiPost){
+*/
+async function showPost(api){
+    let apiPost = await getData(api)
     let tags = ""
     let singleTag = "";
     let pictureTag = await getImage(apiPost)
@@ -95,3 +96,4 @@ async function showPost(apiPost){
         })
     }
 }
+showPost(api)

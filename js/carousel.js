@@ -17,11 +17,6 @@ export async function carousel(posts){
     let html = "";
     let post = ""
     let numberOfSlides = 3;
-    //if screen is over 1000px, make it two column
-    if(window.innerWidth >= 1000){
-        console.log("større skjermer")
-        carouselpostPlacement.style.gridTemplateColumns = "1fr 1fr";
-    }
     for(let i = 0; i < numberOfSlides; i++){
         let FormatedDate = createDate(posts[i].date)
         let tags = ""
@@ -78,9 +73,18 @@ function showCurrentSlide(slideNumber){
     if(window.innerWidth >= 1000){
         currentSlide.style.display = "grid";
         //this will cause error on last slide, but i dont know of i want to change it yet....
-        slideNumber++
+        if(slideNumber === 2){
+            //i dont know if this is a bad way to do it, but it works. 
+            // when on last slide bigger screens, the first slide will be on the right, so it goes in circles
+            currentSlide.style.gridColumn="1/2"
+            currentSlide.style.gridRow="1/2"
+            slideNumber = 0
+        }
+        else{
+            document.querySelector(`.carouselItem2`).style.gridColumn ="2/3"
+            slideNumber++
+        }
         currentSlide = document.querySelector(`.carouselItem${slideNumber}`)
-
         currentSlide.style.display = "grid";
 
     }

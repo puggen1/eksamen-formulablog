@@ -2,7 +2,6 @@
 import {getData} from "./getData.js";
 export async function getImage(post){
     if(post){
-        console.log(post)
         let imageSizes = post._embedded[`wp:featuredmedia`][0].media_details.sizes;
         let altText = post._embedded[`wp:featuredmedia`][0].alt_text;
         

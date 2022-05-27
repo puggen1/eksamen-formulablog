@@ -6,12 +6,11 @@ navBarIcon.addEventListener("click", toggleNavIcon);
 
 function toggleNavIcon(){
     if(navBarIcon.classList.contains("fa-bars")){
-        navBarIcon.classList.remove("fa-bars");
-        navBarIcon.classList.add("fa-times")
+        navBarIcon.classList.replace("fa-bars", "fa-times");
     }
     else{
-        navBarIcon.classList.add("fa-bars");
-        navBarIcon.classList.remove("fa-times")
+        navBarIcon.classList.replace("fa-times", "fa-bars");
+        
     }
     toggleNav();
 }
