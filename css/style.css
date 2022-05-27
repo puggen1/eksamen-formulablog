@@ -138,7 +138,7 @@ h2, h1{
 }
 h1{
     text-align: center;
-    margin-top: 4px;
+    margin: 4px 0px 10px 0px;
     align-self: center;
 }
 h2{
@@ -931,6 +931,16 @@ form label{
         grid-template-columns: 1fr 1fr;
         gap: 50px;
         width: 100%;
+    }
+    /*reset the caroseul items after tablet version*/
+    .carouselItems .post{
+        max-height: none;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: "img img img img"
+        "h3 h3 h3 h3"
+        "date date date date"
+        "ex ex ex ex"
+        "more more tags tags";
     }
     .carouselItems img, .carouselItems picture{
         height: 400px;
