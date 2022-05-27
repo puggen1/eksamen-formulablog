@@ -1034,6 +1034,7 @@ form label{
         "ex ex ex ex"
         "more more tags tags";
         grid-template-rows: auto auto auto 0.2fr;
+        max-height: none;
         
 
     }
