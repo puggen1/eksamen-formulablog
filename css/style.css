@@ -128,6 +128,10 @@ footer a{
 #sources{
     grid-column: 1/3;
 }
+#disclaimer{
+    grid-column: 1/3;
+    text-align: center;
+}
 
 /********************************************
                 text
