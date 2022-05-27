@@ -10,10 +10,10 @@ let regex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0
 function validateForm(event){
     event.preventDefault();
     //path to what need validation
-    let name = event.path[0][0];
-    let email = event.path[0][1];
-    let subject = event.path[0][2];
-    let message = event.path[0][3];
+    let name = event.target[0];
+    let email = event.target[1];
+    let subject = event.target[2];
+    let message = event.target[3];
     //response for what is true or false;
     let nameStatus = inputLength(reqNameLength, name);
     let emailStatus = emailValidation(regex, email)
