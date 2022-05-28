@@ -1196,7 +1196,7 @@ form label{
 /*fixes too small cards at pc versions*/
 @media screen and (min-width:1300px) {
     #featured #mainPagePosts{
-        padding: 0px 5%;
+        width: 80%;
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 80px;
     }

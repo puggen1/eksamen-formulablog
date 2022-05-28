@@ -40,14 +40,14 @@ export async function carousel(posts) {
 }
 
 function showSlideFinder() {
-  if (event.target.id === "previous") {
-    if (currentSlideNumber === 0) {
+  if (event.target.id == "previous") {
+    if (currentSlideNumber == 0) {
       currentSlideNumber = 2;
     } else {
       currentSlideNumber -= 1;
     }
-  } else if (event.target.id === "next") {
-    if (currentSlideNumber === 2) {
+  } else if (event.target.id == "next") {
+    if (currentSlideNumber == 2) {
       currentSlideNumber = 0;
     } else {
       currentSlideNumber += 1;
@@ -74,11 +74,13 @@ function showCurrentSlide(slideNumber) {
   }
   if (window.innerWidth >= 1000) {
     currentSlide.style.display = "grid";
-    if (slideNumber === 2) {
+    if (slideNumber == 2) {
+      console.log("denn skal kjøre");
       //i dont know if this is a bad way to do it, but it works.
       // when on last slide bigger screens, the first slide will be on the right, so it goes in circles
       currentSlide.style.gridColumn = "1/2";
       currentSlide.style.gridRow = "1/2";
+      console.log(slideNumber);
       slideNumber = 0;
     } else {
       document.querySelector(`.carouselItem2`).style.gridColumn = "2/3";
@@ -86,6 +88,7 @@ function showCurrentSlide(slideNumber) {
     }
     //on bigger screens this will show the second slide
     currentSlide = document.querySelector(`.carouselItem${slideNumber}`);
+    console.log(currentSlide, slideNumber);
     currentSlide.style.display = "grid";
   }
   //for all sizes, shows the current slide
