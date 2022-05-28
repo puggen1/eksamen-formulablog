@@ -592,6 +592,10 @@ form label{
     column-gap: 20px;
     align-items: center
 }
+#reset{
+    height: 30px;
+    width: 50px;
+}
 
 /********************************************
                 about page
@@ -655,7 +659,8 @@ form label{
          navigation
     ******************/
     #header{
-        grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 0.43fr 1fr 1fr 1fr 1fr;
+        justify-items: normal;
     }
     #header i{
         display: none;

@@ -65,6 +65,7 @@ function showCurrentSlide(slideNumber){
             slideButtons[i].classList.add("activeNav");
         }
     }
+    //the carosuelItem with a class including the slideNumber will be shown
     let currentSlide = document.querySelector(`.carouselItem${slideNumber}`);
     let slides = document.querySelectorAll(".carouselItems .post");
     for(let i = 0; i < slides.length; i++){
@@ -72,7 +73,6 @@ function showCurrentSlide(slideNumber){
     }
     if(window.innerWidth >= 1000){
         currentSlide.style.display = "grid";
-        //this will cause error on last slide, but i dont know of i want to change it yet....
         if(slideNumber === 2){
             //i dont know if this is a bad way to do it, but it works. 
             // when on last slide bigger screens, the first slide will be on the right, so it goes in circles
@@ -84,10 +84,12 @@ function showCurrentSlide(slideNumber){
             document.querySelector(`.carouselItem2`).style.gridColumn ="2/3"
             slideNumber++
         }
+        //on bigger screens this will show the second slide
         currentSlide = document.querySelector(`.carouselItem${slideNumber}`)
         currentSlide.style.display = "grid";
 
     }
+    //for all sizes, shows the current slide
     currentSlide.style.display = "grid";
 
 }
