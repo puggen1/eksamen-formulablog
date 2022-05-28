@@ -76,6 +76,7 @@ function reset(event) {
 validations functions
 ***********************************************/
 function inputLength(target) {
+  let requiredNumber;
   if (target.id == "name") {
     requiredNumber = 5;
   } else if (target.id == "subject") {
