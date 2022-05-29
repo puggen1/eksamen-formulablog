@@ -1099,8 +1099,12 @@ form label{
     }
     
     .fullScreenImage{
-        width: 80%;
+        width: auto;
+        margin: 0px;
         display: flex;
+        justify-content: center;
+    }
+    .fullScreen{
         justify-content: center;
     }
     .fullScreenImage picture{
