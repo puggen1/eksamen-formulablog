@@ -18,6 +18,7 @@ if (from == "index" || !from) {
 let postLocation = document.querySelector("#post");
 let title = document.querySelector("title");
 let header = document.querySelector("h1");
+let metaDesc = document.querySelector(`meta[name="description"]`);
 if (!postId) {
   window.location.replace("/index.html");
 }
@@ -48,6 +49,8 @@ async function showPost(api) {
   let date = createDate(apiPost.date);
   title.innerHTML = apiPost.title.rendered;
   header.innerHTML = apiPost.title.rendered;
+  //ads meta description
+  metaDesc.content = apiPost.excerpt.rendered.slice(3,-5)
 
   postLocation.innerHTML = `${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div> </div><a class="backBtn" href="${urlBack}">Back</a>`;
   let preface = document.querySelector("#post p");
