@@ -62,7 +62,7 @@ Reset Button
 
 let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", reset);
-function reset(event) {
+function reset() {
   isSubmitted = false;
   submitBtnPressed = false;
   for (let i = 0; i < 4; i++) {
@@ -76,6 +76,7 @@ validations functions
 ***********************************************/
 function inputLength(target) {
   let requiredNumber;
+  //this is kind of hard coded, it was more open before, but due to i needed more eventlisteners i changed this to work for both blur eventlistner and keyup eventlistener
   if (target.id == "name") {
     requiredNumber = 5;
   } else if (target.id == "subject") {
@@ -93,9 +94,9 @@ function inputLength(target) {
   }
 }
 function emailValidation(validation, target) {
+  //so the email is free of spaces
   let email = target.value.trim();
   let validationStatus = validation.test(email);
-  console.log(validationStatus, typeof email);
   if (validationStatus) {
     hideMessage(target);
   } else {
@@ -124,6 +125,7 @@ function successMessage(target, msg) {
   let messagePlacement = document.querySelector(`#${target.id}Msg`);
   let messageDiv = document.querySelector(`#${target.id}`);
   console.log(messagePlacement);
+  //msg is just icon
   messagePlacement.innerHTML = msg;
   messagePlacement.classList.remove("hidden");
   messageDiv.classList.remove("hidden");

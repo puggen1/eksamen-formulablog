@@ -6,7 +6,7 @@ export function showPost(
   from,
   item = ""
 ) {
-  //the item variabel is only used in carousel, but i made the functing somewhat universal since it is kind of easier
+  //the item variabel is only used in carousel, but i made the function somewhat universal since it is kind of easier
   let singlePost = `<div class="post ${item}">${pictureTag}
     <a class="h3Link" href="singlepost.html?id=${post.id}&from=index"><h3>${
     post.title.rendered

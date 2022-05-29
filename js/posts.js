@@ -4,6 +4,7 @@ import { showPost } from "./showPost.js";
 import { getImage } from "./getImage.js";
 import { createTag } from "./createTag.js";
 import { createDate } from "./createDate.js";
+import { filterTag } from "./filtersAndSort.js";
 //getting the tag id from the url, so if people pressed the tag button on index, it will filter after that here the first time.
 let url = window.location.search;
 let urlParams = new URLSearchParams(url);
@@ -81,15 +82,6 @@ async function filterPost(method, filterId) {
 }
 
 //diffrent filter functions
-
-function filterTag(event) {
-  for (let tag of event.tags) {
-    if (this == tag) {
-      console.log(event.tags + "inneholder taggen");
-      return true;
-    }
-  }
-}
 
 //show posts, no matter filter
 async function ShowCurrentPosts(postList = posts) {

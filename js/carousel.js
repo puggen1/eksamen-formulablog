@@ -2,10 +2,10 @@ import { showPost } from "./showPost.js";
 import { getImage } from "./getImage.js";
 import { createTag } from "./createTag.js";
 import { createDate } from "./createDate.js";
-let carouselpostPlacement = document.querySelector(".carouselItems");
+const carouselpostPlacement = document.querySelector(".carouselItems");
 let currentSlideNumber = 0;
-let arrows = document.querySelectorAll(".carouselNavigation i");
-let slideButtons = document.querySelectorAll(`.navBtn`);
+const arrows = document.querySelectorAll(".carouselNavigation i");
+const slideButtons = document.querySelectorAll(`.navBtn`);
 export async function carousel(posts) {
   for (let arrow of arrows) {
     arrow.addEventListener("click", showSlideFinder);
@@ -15,7 +15,8 @@ export async function carousel(posts) {
   }
   let html = "";
   let post = "";
-  let numberOfSlides = 3;
+  //i only want 3 slides,
+  const numberOfSlides = 3;
   for (let i = 0; i < numberOfSlides; i++) {
     let FormatedDate = createDate(posts[i].date);
     let tags = "";
@@ -40,6 +41,7 @@ export async function carousel(posts) {
 }
 
 function showSlideFinder() {
+  //some hardcode that only works for when it is 3 slides, so it changes currentslidenumber from 0 to 2 etc
   if (event.target.id == "previous") {
     if (currentSlideNumber == 0) {
       currentSlideNumber = 2;
@@ -72,6 +74,7 @@ function showCurrentSlide(slideNumber) {
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
+  //this if changes how many posts is shown in carousel, please note that this means it only checks this when the page is loaded and will not work if screen size is changed after page is loaded, this will for the most part not be a problem
   if (window.innerWidth >= 1000) {
     currentSlide.style.display = "grid";
     if (slideNumber == 2) {
