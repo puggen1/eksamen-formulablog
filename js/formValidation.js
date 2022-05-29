@@ -1,7 +1,6 @@
-let form = document.querySelector("form");
+const form = document.querySelector("form");
 form.addEventListener("submit", validateForm);
-
-let fields = document.querySelectorAll("input, textarea");
+const fields = document.querySelectorAll("input, textarea");
 
 //has true or false based on if submit have been pressed
 let submitBtnPressed = false;
@@ -67,7 +66,7 @@ function reset(event) {
   isSubmitted = false;
   submitBtnPressed = false;
   for (let i = 0; i < 4; i++) {
-    hideMessage(event.path[2][i]);
+    hideMessage(form[i]);
   }
   hideMessage(document.querySelector("#success"));
 }
