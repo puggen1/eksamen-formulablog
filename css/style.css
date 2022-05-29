@@ -452,15 +452,14 @@ grid-area: h2;
 }
 
 /********************************************
-                posts page
+                single post page
 ***********************************************/
 
 #post{
     width: 80%;
     margin: 0 auto;
 }
-#post p{
-}
+
 .postInfo{
     width: 80%;
     margin: 10px auto;
@@ -483,9 +482,13 @@ grid-area: h2;
     text-align: center;
     margin-bottom: 7px;
 }
+#post picture{
+    /*so image is in middle if small*/
+    display: flex;
+    flex-direction: column;
+}
 #post figure{
     margin: auto 0px;
-    border-bottom: solid var(--redColor) 0.3px;
     border-top: solid var(--redColor) 0.3px;
     padding: 5px 0px;
 }
@@ -501,6 +504,18 @@ grid-area: h2;
     align-items: center;
     flex-direction: row-reverse;
 
+}
+/*testing*/
+figure div, picture div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
+figure p, picture p{
+   margin: 0px;
+    padding-bottom: 2px;
+    text-align: center;
 }
 .postInfo div.byDate{
     display: flex;
@@ -519,13 +534,14 @@ grid-area: h2;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     align-items: center;
+    
 }
-/*.fullScreen i{
-    left: 88%;
-    top: 18%;
+.fullScreen i{
+    left: 90%;
+    top: 10%;
     color: white;
     position:absolute;
-}*/
+}
 .fullScreenImage{
     top:50%;
     width: 90%;
@@ -772,8 +788,9 @@ form label{
         border-radius: 20px;
         max-height: 250px;
         object-fit: cover;
-
-
+    }
+    figure div, picture div{
+        justify-content: flex-end;
     }
     #post #preface{
         background-color: var(--blueColor);
@@ -1074,16 +1091,22 @@ form label{
     #post figure img{
         max-height: 500px;
     }
+    figure div, picture div{
+        justify-content: flex-start;
+    }
     #post p{
         max-width: 540px;
     }
     
     .fullScreenImage{
-        width: auto;
-        height: 80%;
+        width: 80%;
+        
     }
-    .fullScreenImage img{
-        height: 100%;
+    .fullScreenImage picture{
+        width: 80%;
+    }
+    .fullScreen img{
+        width: auto;
     }
      /****************************************
             about  page pc/bigger screens

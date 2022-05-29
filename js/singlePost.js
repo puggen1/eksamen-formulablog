@@ -19,6 +19,7 @@ let postLocation = document.querySelector("#post");
 let title = document.querySelector("title");
 let header = document.querySelector("h1");
 let metaDesc = document.querySelector(`meta[name="description"]`);
+let bigPictures;
 if (!postId) {
   window.location.replace("/index.html");
 }
@@ -59,34 +60,34 @@ async function showPost(api) {
   let images = document.querySelectorAll("#post img");
   let bottomOfPage = document.querySelector(".bigImgPlace");
   let imgHtml = "";
-  let i = 0;
-  for (let img of images) {
-    img.classList.add(`img${i}`);
+  for (let i = 0; i < images.length; i++) {
+      //adds icon under image
+    images[i].insertAdjacentHTML("afterend", `<div class="img${i}"><i class="fas fa-expand"></i><p> click the image to make bigger</p></div>`)
+    images[i].classList.add(`img${i}`);
     let imgresponse = showBigImage(images, i);
     imgHtml += imgresponse;
-    i++;
-  }
-  bottomOfPage.innerHTML = imgHtml;
-  //let imgIcon = document.querySelectorAll(".fullScreenImage i");
-  let bigPictures = document.querySelectorAll(".fullScreen");
-  //reset i for this test
-  i = 0;
-  for (let i = 0; i < images.length; i++) {
-    console.log(i, images[i]);
-    images[i].addEventListener("click", function () {
-      if (bigPictures[i].classList.contains(`img${i}`)) {
-        bigPictures[i].style.display = "flex";
-      }
+    //this will show big picture
+    let fullScreenIcon = document.querySelector(`div.img${i} i`);
+    //under here is a bit repetetive, 
+
+    fullScreenIcon.addEventListener("click", function() {
+        imgEvent(i);
+      })
+    images[i].addEventListener("click", function (){
+        imgEvent(i);
     });
   }
-  /*
+  bottomOfPage.innerHTML = imgHtml;
+  let imgIcon = document.querySelectorAll(".fullScreenImage i");
+  bigPictures = document.querySelectorAll(".fullScreen");
+  //reset i for this test
     for (let icon of imgIcon){
         icon.addEventListener("click", function (){
             for(let img of bigPictures){
                 img.style.display="none";
             }
         })
-    }*/
+    }
   for (let pictureBox of bigPictures) {
     pictureBox.addEventListener("click", function () {
       //this if statement will check if you are pressing the img, if you are, it will not hide the image
@@ -98,3 +99,9 @@ async function showPost(api) {
   }
 }
 showPost(api);
+
+function imgEvent(number){
+    if (bigPictures[number].classList.contains(`img${number}`)) {
+        bigPictures[number].style.display = "flex";
+      }
+}
