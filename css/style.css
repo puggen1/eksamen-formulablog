@@ -1100,7 +1100,8 @@ form label{
     
     .fullScreenImage{
         width: 80%;
-        
+        display: flex;
+        justify-content: center;
     }
     .fullScreenImage picture{
         width: 80%;
