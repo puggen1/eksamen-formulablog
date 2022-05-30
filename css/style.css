@@ -1098,7 +1098,11 @@ form label{
     #post p{
         max-width: 540px;
     }
-    
+
+    /* this is an "picture description" that give sinfo that  you can click the image*/
+    picture div{
+        margin-top: 5px;
+    }
     .fullScreenImage{
         width: auto;
         margin: 0px;
