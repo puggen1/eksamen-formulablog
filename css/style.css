@@ -504,9 +504,7 @@ grid-area: h2;
     border-top: solid var(--redColor) 0.3px;
     padding: 5px 0px;
 }
-#post figure img{
-    height: 100%;
-}
+
 .postInfo div.tags{
     grid-column: 2/4;
     grid-row: 1/2;
