@@ -788,6 +788,7 @@ form label{
         border-radius: 20px;
         max-height: 250px;
         object-fit: cover;
+        object-position: top;
     }
     figure div, picture div{
         justify-content: flex-end;
