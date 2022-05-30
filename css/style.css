@@ -67,16 +67,22 @@ display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 justify-items: center;
 align-items: center ;
+height: 80px;
 }
 #header a{
-    width: 85px;
-    grid-column: 2/3;
+    
+    
 }
 #nav{
     display: none;
 }
 #header #logo{
-    width: 85px;
+    width: 90px;
+    height: 80px;
+    grid-column: 2/3;
+}
+#logo img{
+    height: 80px;
 }
 .show{
     width: 100%;
@@ -85,7 +91,7 @@ align-items: center ;
     grid-template-columns: 1fr;
     z-index: 1;
     background-color: var(--blueColor);
-    top: 49px;
+    top: 80px;
     justify-items: center;
     align-items: center;
 }
