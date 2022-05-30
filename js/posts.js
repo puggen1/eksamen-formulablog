@@ -92,7 +92,15 @@ async function ShowCurrentPosts(postList = posts) {
         let singleTag = await createTag(tag, "button");
         tags += singleTag;
       }
-      singlePost = showPost(postList[i], formatedDate, imageTag, tags, "posts");
+      singlePost = showPost(
+        postList[i],
+        formatedDate,
+        imageTag,
+        tags,
+        "posts",
+        "",
+        "h2"
+      );
       if (postList.length > x) {
         showMoreBtn.style.display = "block";
       }

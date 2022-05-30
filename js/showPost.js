@@ -4,13 +4,14 @@ export function showPost(
   pictureTag,
   tags,
   from,
-  item = ""
+  item = "",
+  header = "h3"
 ) {
   //the item variabel is only used in carousel, but i made the function somewhat universal since it is kind of easier
   let singlePost = `<div class="post ${item}">${pictureTag}
-    <a class="h3Link" href="singlepost.html?id=${post.id}&from=index"><h3>${
-    post.title.rendered
-  }</h3></a>
+    <a class="${header}Link" href="singlepost.html?id=${
+    post.id
+  }&from=index"><${header}>${post.title.rendered}</${header}></a>
     <p class="dateAndBy">Written on ${formatedDate} by ${
     post._embedded.author[0].name
   } </p>

@@ -320,7 +320,7 @@ i{
     object-fit: cover;
     object-position: top;
 }
-.post a.h3Link{
+.post a.h3Link, .post a.h2Link{
     display: inline-block;
     grid-area: h3;
     padding: 5px;
@@ -328,8 +328,14 @@ i{
     text-decoration: underline var(--redColor) 2px;
     
 }
-.post a.h3Link h3{
+.post a.h3Link h3, .post a.h2Link h2{
+    font-family: 'Barlow', sans-serif;
     margin: 0;
+}
+
+/*for semantic on posts.html i need to edit h2 here */
+.post a.h2Link h2{
+    font-size: 1.2rem;
 }
 .post .dateAndBy{
     grid-area: date;
