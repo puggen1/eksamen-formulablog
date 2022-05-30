@@ -22,15 +22,11 @@ export async function getImage(post) {
 
 export function showBigImage(image, id) {
   image[id].classList.add("hoverImg");
-  let usedImage = image[id].src;
-  if (image[id].currentSrc) {
-    console.log(`new image tag will be: <img src="${image[id].currentSrc}">`);
-    usedImage = image[id].currentSrc;
-  }
+  console.log(`new image tag will be: <img src="${image[id].src}">`);
   return `
     <div class="fullScreen img${id}">
     <picture class="fullScreenImage">
-    <img src="${usedImage}">
+    <img src="${image[id].currentSrc}">
     </picture>
     <i class="fas fa-times"></i>
     </div>`;

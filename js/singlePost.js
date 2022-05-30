@@ -20,6 +20,7 @@ let title = document.querySelector("title");
 let header = document.querySelector("h1");
 let metaDesc = document.querySelector(`meta[name="description"]`);
 let bigPictures;
+let images;
 if (!postId) {
   window.location.replace("/index.html");
 }
@@ -66,7 +67,8 @@ async function showPost(api) {
   let preface = document.querySelector("#post p");
   preface.id = "preface";
   //big images
-  let images = document.querySelectorAll("#post img");
+
+  images = document.querySelectorAll("#post img");
   let bottomOfPage = document.querySelector(".bigImgPlace");
   let imgHtml = "";
   for (let i = 0; i < images.length; i++) {
@@ -76,9 +78,9 @@ async function showPost(api) {
       `<div class="img${i}"><i class="fas fa-expand"></i><p> click the image to make bigger</p></div>`
     );
     images[i].classList.add(`img${i}`);
-    console.log(images[i].currentSrc);
     let imgresponse = showBigImage(images, i);
     imgHtml += imgresponse;
+    bottomOfPage.innerHTML = imgHtml;
     //this will show big picture
     let fullScreenIcon = document.querySelector(`div.img${i} i`);
     //under here is a bit repetetive,
@@ -90,7 +92,7 @@ async function showPost(api) {
       imgEvent(i);
     });
   }
-  bottomOfPage.innerHTML = imgHtml;
+
   bigPictures = document.querySelectorAll(".fullScreen");
   //reset i for this test
 
@@ -107,7 +109,11 @@ async function showPost(api) {
 showPost(api);
 
 function imgEvent(number) {
-  if (bigPictures[number].classList.contains(`img${number}`)) {
-    bigPictures[number].style.display = "flex";
+  //hotfix to so current src is always used
+  let targetImg = document.querySelector(`.img${number} picture img`);
+  //due to me using currentsrc for the big pictures in the modal, if you open the page and everything loads without you being on it, in example: open in new tab, the current src will be none.
+  if (images[number].currentSrc !== targetImg.currentSrc) {
+    targetImg.src = images[number].currentSrc;
   }
+  bigPictures[number].style.display = "flex";
 }
