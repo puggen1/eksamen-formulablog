@@ -91,7 +91,6 @@ function showCurrentSlide(slideNumber) {
     }
     //on bigger screens this will show the second slide
     currentSlide = document.querySelector(`.carouselItem${slideNumber}`);
-    console.log(currentSlide, slideNumber);
     currentSlide.style.display = "grid";
   }
   //for all sizes, shows the current slide
