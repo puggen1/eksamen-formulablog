@@ -12,7 +12,7 @@ export async function getImage(post) {
     //all posts have featured picture, but if for some reason more are added and i forget to add image, this will add a placeholder image
     let picture = `
         <picture> 
-        <img src="./assets/test.png" alt="placeholder image">
+        <img src="./assets/placeholder.png" alt="placeholder image">
         </picture>
         `;
     return picture;
