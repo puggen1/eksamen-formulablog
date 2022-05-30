@@ -51,9 +51,10 @@ async function showPost(api) {
   title.innerHTML = apiPost.title.rendered;
   header.innerHTML = apiPost.title.rendered;
   //ads meta description
-  metaDesc.content = apiPost.excerpt.rendered.slice(3,-5)
+  metaDesc.content = apiPost.excerpt.rendered.slice(3, -5);
 
   postLocation.innerHTML = `${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div> </div><a class="backBtn" href="${urlBack}">Back</a>`;
+  postLocation.classList.remove("fillerPost");
   let preface = document.querySelector("#post p");
   preface.id = "preface";
   //big images
@@ -61,33 +62,36 @@ async function showPost(api) {
   let bottomOfPage = document.querySelector(".bigImgPlace");
   let imgHtml = "";
   for (let i = 0; i < images.length; i++) {
-      //adds icon under image
-    images[i].insertAdjacentHTML("afterend", `<div class="img${i}"><i class="fas fa-expand"></i><p> click the image to make bigger</p></div>`)
+    //adds icon under image
+    images[i].insertAdjacentHTML(
+      "afterend",
+      `<div class="img${i}"><i class="fas fa-expand"></i><p> click the image to make bigger</p></div>`
+    );
     images[i].classList.add(`img${i}`);
     let imgresponse = showBigImage(images, i);
     imgHtml += imgresponse;
     //this will show big picture
     let fullScreenIcon = document.querySelector(`div.img${i} i`);
-    //under here is a bit repetetive, 
+    //under here is a bit repetetive,
 
-    fullScreenIcon.addEventListener("click", function() {
-        imgEvent(i);
-      })
-    images[i].addEventListener("click", function (){
-        imgEvent(i);
+    fullScreenIcon.addEventListener("click", function () {
+      imgEvent(i);
+    });
+    images[i].addEventListener("click", function () {
+      imgEvent(i);
     });
   }
   bottomOfPage.innerHTML = imgHtml;
   let imgIcon = document.querySelectorAll(".fullScreenImage i");
   bigPictures = document.querySelectorAll(".fullScreen");
   //reset i for this test
-    for (let icon of imgIcon){
-        icon.addEventListener("click", function (){
-            for(let img of bigPictures){
-                img.style.display="none";
-            }
-        })
-    }
+  for (let icon of imgIcon) {
+    icon.addEventListener("click", function () {
+      for (let img of bigPictures) {
+        img.style.display = "none";
+      }
+    });
+  }
   for (let pictureBox of bigPictures) {
     pictureBox.addEventListener("click", function () {
       //this if statement will check if you are pressing the img, if you are, it will not hide the image
@@ -100,8 +104,8 @@ async function showPost(api) {
 }
 showPost(api);
 
-function imgEvent(number){
-    if (bigPictures[number].classList.contains(`img${number}`)) {
-        bigPictures[number].style.display = "flex";
-      }
+function imgEvent(number) {
+  if (bigPictures[number].classList.contains(`img${number}`)) {
+    bigPictures[number].style.display = "flex";
+  }
 }
