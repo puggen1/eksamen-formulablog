@@ -7,8 +7,7 @@ let submitBtnPressed = false;
 let isSubmitted = false;
 //the required lengths for the form
 
-//currently the same regex i used in the js ca, it works so i dont know if i should switch it
-
+//regex taken from https://emailregex.com/
 let regex =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
