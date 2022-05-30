@@ -53,7 +53,15 @@ async function showPost(api) {
   //ads meta description
   metaDesc.content = apiPost.excerpt.rendered.slice(3, -5);
 
-  postLocation.innerHTML = `${pictureTag} ${apiPost.content.rendered} <div class="postInfo"><div class="byDate"><p>By ${apiPost._embedded.author[0].name}</p><p>on ${date}</p></div><div class="tags"> ${tags}</div> </div><a class="backBtn" href="${urlBack}">Back</a>`;
+  postLocation.innerHTML = `${pictureTag} 
+   ${apiPost.content.rendered} 
+   <div class="postInfo"><div class="byDate">
+   <p>By ${apiPost._embedded.author[0].name}</p>
+   <p>on ${date}</p></div>
+   <div class="tags"> ${tags}</div>
+    </div>
+    <a class="backBtn" href="${urlBack}">Back</a>`;
+
   postLocation.classList.remove("fillerPost");
   let preface = document.querySelector("#post p");
   preface.id = "preface";
@@ -68,6 +76,7 @@ async function showPost(api) {
       `<div class="img${i}"><i class="fas fa-expand"></i><p> click the image to make bigger</p></div>`
     );
     images[i].classList.add(`img${i}`);
+    console.log(images[i].currentSrc);
     let imgresponse = showBigImage(images, i);
     imgHtml += imgresponse;
     //this will show big picture
@@ -82,16 +91,9 @@ async function showPost(api) {
     });
   }
   bottomOfPage.innerHTML = imgHtml;
-  let imgIcon = document.querySelectorAll(".fullScreenImage i");
   bigPictures = document.querySelectorAll(".fullScreen");
   //reset i for this test
-  for (let icon of imgIcon) {
-    icon.addEventListener("click", function () {
-      for (let img of bigPictures) {
-        img.style.display = "none";
-      }
-    });
-  }
+
   for (let pictureBox of bigPictures) {
     pictureBox.addEventListener("click", function () {
       //this if statement will check if you are pressing the img, if you are, it will not hide the image

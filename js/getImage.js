@@ -3,8 +3,6 @@ export async function getImage(post) {
     let imageSizes = post._embedded[`wp:featuredmedia`][0].media_details.sizes;
     let altText = post._embedded[`wp:featuredmedia`][0].alt_text;
     console.log(post._embedded[`wp:featuredmedia`][0]);
-    let credit = post._embedded[`wp:featuredmedia`][0].description;
-    console.log(credit);
     let picture = `
         <picture>
         <source media="(min-width:700px)" srcset="${imageSizes.full.source_url}">
@@ -24,12 +22,15 @@ export async function getImage(post) {
 
 export function showBigImage(image, id) {
   image[id].classList.add("hoverImg");
-  console.log(image);
-  console.log(`new image tag will be: <img src="${image[id].currentSrc}">`);
+  let usedImage = image[id].src;
+  if (image[id].currentSrc) {
+    console.log(`new image tag will be: <img src="${image[id].currentSrc}">`);
+    usedImage = image[id].currentSrc;
+  }
   return `
     <div class="fullScreen img${id}">
     <picture class="fullScreenImage">
-    <img src="${image[id].currentSrc}">
+    <img src="${usedImage}">
     </picture>
     <i class="fas fa-times"></i>
     </div>`;
