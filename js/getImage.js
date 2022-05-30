@@ -2,10 +2,17 @@ export async function getImage(post) {
   if (post.featured_media) {
     let imageSizes = post._embedded[`wp:featuredmedia`][0].media_details.sizes;
     let altText = post._embedded[`wp:featuredmedia`][0].alt_text;
+    let secondImg
+    if(imageSizes.medium_large){
+        secondImg = imageSizes.medium_large;
+    }
+    else{
+        secondImg = imageSizes.medium;
+    }
     let picture = `
         <picture>
         <source media="(min-width:700px)" srcset="${imageSizes.full.source_url}">
-        <img src="${imageSizes.medium.source_url}" alt="${altText}"></picture>
+        <img src="${secondImg.source_url}" alt="${altText}"></picture>
         `;
     return picture;
   } else {

@@ -505,6 +505,9 @@ grid-area: h2;
     padding: 5px 0px;
 }
 
+#post figure img, #post picture img{
+    height: auto;
+}
 .postInfo div.tags{
     grid-column: 2/4;
     grid-row: 1/2;
