@@ -2,7 +2,6 @@ export async function getImage(post) {
   if (post.featured_media) {
     let imageSizes = post._embedded[`wp:featuredmedia`][0].media_details.sizes;
     let altText = post._embedded[`wp:featuredmedia`][0].alt_text;
-    console.log(post._embedded[`wp:featuredmedia`][0]);
     let picture = `
         <picture>
         <source media="(min-width:700px)" srcset="${imageSizes.full.source_url}">

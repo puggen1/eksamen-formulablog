@@ -73,9 +73,6 @@ async function filterPost(method, filterId) {
     filteredPosts = posts.filter(filterTag, filterId);
     //so i later can show more without it showing the last filter.
     activePosts = filteredPosts;
-    console.log(activePosts);
-  } else {
-    console.log("placeholder");
   }
 
   ShowCurrentPosts(activePosts);
@@ -152,7 +149,6 @@ async function engageButtons(tagBtns) {
 }
 async function checkForTag(tagId) {
   if (!tagId) {
-    console.log("no tag");
     await ShowCurrentPosts(posts);
   } else {
     console.log("tag found");

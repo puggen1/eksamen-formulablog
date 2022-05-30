@@ -1,4 +1,3 @@
-console.log("hello from script.js");
 //all the function getting used,
 import { getData } from "./getData.js";
 import { showPost } from "./showPost.js";

@@ -44,13 +44,11 @@ function validateForm(event) {
   let messageStatus = inputLength(message);
   if (nameStatus && emailStatus && SubjectStatus && messageStatus) {
     isSubmitted = true;
-    console.log("form submitted");
     successMessage(
       success,
       `<i class="fas fa-check-circle"></i>Form submitted successfully!`
     );
   } else {
-    console.log("error");
     hideMessage(success);
   }
 }
@@ -124,7 +122,6 @@ function successMessage(target, msg) {
   //this message box shows up when all the fields are true
   let messagePlacement = document.querySelector(`#${target.id}Msg`);
   let messageDiv = document.querySelector(`#${target.id}`);
-  console.log(messagePlacement);
   //msg is just icon
   messagePlacement.innerHTML = msg;
   messagePlacement.classList.remove("hidden");

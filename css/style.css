@@ -69,9 +69,8 @@ justify-items: center;
 align-items: center ;
 height: 80px;
 }
-#header a{
-    
-    
+#nav .current{
+    color: white;
 }
 #nav{
     display: none;
@@ -699,15 +698,20 @@ form label{
     #nav{
         display: flex;
         grid-column: 3/6;
+        justify-content: center;
+        gap: 40px;
     }
     #nav a{
         text-decoration: none;
         
     }
+    
     #tempNav{
         display: none;
     }
-
+#hero{
+    display: none;
+}
     /* featured tablet*/
     #mainPagePosts{
         display: grid;
@@ -955,9 +959,7 @@ form label{
     #nav a{
         font-size: 1.5rem;
     }
-    #nav .current{
-        color: white;
-    }
+    
     #nav a:hover{
         color: white;
         text-decoration: underline;
